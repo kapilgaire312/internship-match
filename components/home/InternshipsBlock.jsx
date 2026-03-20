@@ -1,25 +1,33 @@
-import { filterInternshipsBySector } from "@/lib/utils/filterInternshipsBySector";
+import Link from "next/link";
 import InternshipsCard from "./InternshipsCard";
+import { getSuggestedInternships } from "@/lib/utils/getSuggestedInternships";
+import BackButton from "./BackButton";
 
-export default async function InternshipsBlock() {
-  const internshipsBySector = await filterInternshipsBySector([
-    "Data",
-    "Frontend",
-    "DevOps",
-  ]);
+export default async function InternshipsBlock({ search }) {
+  const internshipsBySector = await getSuggestedInternships(search);
 
+  if (internshipsBySector.error) return <div>nothinf</div>;
   return (
     <div className="flex justify-center">
       {" "}
-      <div className="w-[80vw] bg-white p-6  rounded shadow-md">
-        <div>
-          <div className="text-2xl font-medium">Suggested Internships</div>
-          <div>
-            <p className="text-gray-500 ml-3">
-              Opportunities that match your sectors in your profile.
-            </p>
+      <div className="w-[80vw] bg-white py-6 pl-6  rounded shadow-md">
+        {search ? (
+          <div className="flex gap-3">
+            <BackButton />
+            <div className="text-2xl font-medium">
+              Showing results for &quot;{search}&quot;
+            </div>
           </div>
-        </div>
+        ) : (
+          <div>
+            <div className="text-2xl font-medium">Suggested Internships</div>
+            <div>
+              <p className="text-gray-500 ml-3">
+                Opportunities that match your sectors in your profile.
+              </p>
+            </div>
+          </div>
+        )}
         <div className="flex flex-col gap-6 mt-6">
           {internshipsBySector?.map((item) => {
             return <InternshipsCard key={item._id} internshipInfo={item} />;

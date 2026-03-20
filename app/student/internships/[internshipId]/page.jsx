@@ -1,0 +1,47 @@
+import dbConnect from "@/lib/dbConnect";
+import Internship from "@/lib/models/internship-model";
+import { calculateMatchScore } from "@/lib/utils/getInternshipsWithMatchScore";
+import Image from "next/image";
+import TitleSection from "./components/TitleSection";
+import BodySection from "./components/BodySection";
+import Link from "next/link";
+import InternshipInfo from "./components/InternshipInfo";
+
+import { headers } from "next/headers";
+import getInternshipData from "@/lib/utils/getInternshipData";
+
+export default async function InternshipPage({ params }) {
+  const { internshipId } = await params;
+
+  const headersList = await headers();
+  const referer = headersList.get("referer") || "";
+  const previousPage = referer.includes("matches") ? "matches" : "home";
+
+  const internshipData = await getInternshipData(internshipId);
+  internshipData.company_logo = "/demoImage.webp";
+  return (
+    <div className="px-10 flex flex-col gap-5">
+      <Link href={`/student/${previousPage}`}>
+        {" "}
+        <div className="flex items-center gap-2 ">
+          <div className="h-5 w-5 relative">
+            <Image src="/back-arrow-logo.svg" fill alt="back-arrow" />
+          </div>
+          <div className="font-medium text-gray-500">
+            {" "}
+            Back to {previousPage[0].toUpperCase() + previousPage.slice(1)}
+          </div>
+        </div>
+      </Link>
+      <div className="flex gap-5">
+        <div className="bg-white w-full px-[2vw] rounded py-8 gap-8 flex flex-col">
+          <TitleSection internshipData={internshipData} />
+          <BodySection internshipData={internshipData} />
+        </div>
+        <div className="w-110">
+          <InternshipInfo internshipData={internshipData} />
+        </div>
+      </div>
+    </div>
+  );
+}

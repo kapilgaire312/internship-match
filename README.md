@@ -15,4 +15,4 @@ Students upload their resumes or add their skills, and companies post internship
 - **`@/lib/models`** – Database schema and models used for storing application data.
 - **`@/lib/utils`** – Helper functions restricted to server-side usage.
 - **`@/utils`** – Utility functions that can be shared between the client and server.
-- **`@/components`** – Reusable UI components used across the application. routes are in that folder.
+- **`@/components`** – Reusable UI components used across the application.

@@ -1,11 +1,14 @@
 import InternshipsBlock from "@/components/home/InternshipsBlock";
 import SearchBlock from "@/components/home/SearchBlock";
 
-export default function Internships() {
+export default async function Home({ searchParams }) {
+  const params = await searchParams;
+  console.log("params", params);
+
   return (
     <div className="flex flex-col gap-10">
       <SearchBlock />
-      <InternshipsBlock />
+      <InternshipsBlock search={params?.search} />
     </div>
   );
 }

@@ -1,0 +1,34 @@
+import Image from "next/image";
+
+export default function TitleSection({ internshipData }) {
+  return (
+    <div className="flex justify-between border-b pb-6">
+      <div className="flex justify-start gap-5">
+        {" "}
+        <div className="relative w-18 h-18 border rounded">
+          <Image fill alt="company-logo" src={internshipData?.company_logo} />
+        </div>
+        <div className="flex flex-col gap-1">
+          <div className="text-2xl font-semibold">{internshipData?.title}</div>
+          <div className="text-[#2762ea] font-medium text-[1.2rem] ">
+            {internshipData?.company_name}
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          className={`flex gap-2 rounded-2xl py-1 px-2 text-[0.9rem] font-medium`}
+          style={{ backgroundColor: internshipData.matchColour }}
+        >
+          {" "}
+          {internshipData.matchScore > 10 ? (
+            <div>{internshipData.matchScore}%</div>
+          ) : (
+            <div>N/A</div>
+          )}
+          Match
+        </div>
+      </div>
+    </div>
+  );
+}
