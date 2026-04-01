@@ -1,6 +1,3 @@
-import dbConnect from "@/lib/dbConnect";
-import Internship from "@/lib/models/internship-model";
-import { calculateMatchScore } from "@/lib/utils/getInternshipsWithMatchScore";
 import Image from "next/image";
 import TitleSection from "./components/TitleSection";
 import BodySection from "./components/BodySection";
@@ -9,15 +6,22 @@ import InternshipInfo from "./components/InternshipInfo";
 
 import { headers } from "next/headers";
 import getInternshipData from "@/lib/utils/getInternshipData";
+import ApplicationDetailsSection from "./components/ApplicationDetailsSection";
 
 export default async function InternshipPage({ params }) {
   const { internshipId } = await params;
 
   const headersList = await headers();
   const referer = headersList.get("referer") || "";
-  const previousPage = referer.includes("matches") ? "matches" : "home";
+  const previousPage = referer.includes("matches")
+    ? "matches"
+    : referer.includes("applied")
+      ? "applied"
+      : "home";
 
   const internshipData = await getInternshipData(internshipId);
+
+  console.log(internshipData);
   internshipData.company_logo = "/demoImage.webp";
   return (
     <div className="px-10 flex flex-col gap-5">
@@ -38,7 +42,16 @@ export default async function InternshipPage({ params }) {
           <TitleSection internshipData={internshipData} />
           <BodySection internshipData={internshipData} />
         </div>
-        <div className="w-110">
+        <div className="w-110 flex flex-col gap-5">
+          {internshipData.isApplied && (
+            <ApplicationDetailsSection
+              internshipData={{
+                status: internshipData.status,
+                appliedDate: internshipData.appliedDate,
+                internshipId: internshipData._id.toString(),
+              }}
+            />
+          )}
           <InternshipInfo internshipData={internshipData} />
         </div>
       </div>

@@ -1,4 +1,3 @@
-import { filterInternshipsBySector } from "@/lib/utils/filterInternshipsBySector";
 import { formatSalary } from "@/utils/formatSalary";
 import Image from "next/image";
 import ApplyButton from "./ApplyButton";
@@ -29,15 +28,9 @@ export default function InternshipsCard({ internshipInfo }) {
                 {" "}
                 <Image src="/location.svg" fill alt="company" />
               </div>
-              {internshipInfo.company_location}
-            </div>
-            <div className="flex gap-1">
-              {" "}
-              <div className="relative h-4 w-4 top-1">
-                {" "}
-                <Image src="/time-period.svg" fill alt="company" />
-              </div>
-              {internshipInfo.intern_period}
+              {internshipInfo.type === "remote"
+                ? "remote"
+                : `${internshipInfo.company_location} (${internshipInfo.type})`}
             </div>
             <div className="flex gap-1">
               {" "}
@@ -67,7 +60,10 @@ export default function InternshipsCard({ internshipInfo }) {
             {internshipInfo.matchScore}% Match
           </div>
         )}
-        <ApplyButton internshipId={internshipId} />
+        <ApplyButton
+          internshipId={internshipId}
+          isApplied={internshipInfo.isApplied}
+        />
       </div>
     </div>
   );

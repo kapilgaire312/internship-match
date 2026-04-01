@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 export default function SearchBar({ placeholder }) {
   const router = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   const inputRef = useRef(null);
   const [inputValue, setInputValue] = useState("");
@@ -14,6 +15,13 @@ export default function SearchBar({ placeholder }) {
     e.preventDefault();
 
     if (inputValue === "") return;
+
+    //check if there is filter
+    const filter = searchParams.get("filter");
+    if (filter) {
+      router.replace(`${pathname}?search=${inputValue}&filter=${filter}`);
+      return;
+    }
     router.replace(`${pathname}?search=${inputValue}`);
     setInputValue("");
     inputRef?.current?.blur();

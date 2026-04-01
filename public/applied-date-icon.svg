@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <!-- Clip path to cut out the area behind the checkmark circle -->
+    <clipPath id="docClip">
+      <path d="M0,0 H100 V100 H0 Z M30,28 m-18,0 a18,18 0 1,0 36,0 a18,18 0 1,0 -36,0"/>
+    </clipPath>
+  </defs>
+ 
+  <!-- Document body clipped to hide stroke behind checkmark -->
+  <rect x="28" y="22" width="52" height="62" rx="4" ry="4"
+        fill="none" stroke="#4B5563" stroke-width="5" stroke-linejoin="round"
+        clip-path="url(#docClip)"/>
+ 
+  <!-- Text lines on document -->
+  <line x1="38" y1="38" x2="70" y2="38" stroke="#4B5563" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="38" y1="49" x2="70" y2="49" stroke="#4B5563" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="38" y1="60" x2="70" y2="60" stroke="#4B5563" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="38" y1="71" x2="58" y2="71" stroke="#4B5563" stroke-width="4.5" stroke-linecap="round"/>
+ 
+  <!-- Checkmark circle drawn on top, with transparent fill to erase doc outline beneath -->
+  <circle cx="30" cy="28" r="16" fill="transparent" stroke="#4B5563" stroke-width="5"/>
+  <!-- Checkmark tick -->
+  <polyline points="21,28 27,35 40,20" fill="none" stroke="#4B5563" stroke-width="4.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+ 
+  <!-- Pencil lifted up in Y, rotated +45 (flipped horizontally) -->
+  <g transform="translate(0, -10) rotate(45, 72, 72)">
+    <rect x="64" y="52" width="14" height="32" rx="2" ry="2" fill="#4B5563"/>
+    <polygon points="64,84 78,84 71,95" fill="#4B5563"/>
+    <rect x="64" y="48" width="14" height="6" rx="1" fill="#4B5563"/>
+    <line x1="71" y1="52" x2="71" y2="84" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-export default function ApplyButton({ internshipId, isApplied }) {
+export default function ViewButton({ internshipId }) {
   const router = useRouter();
   function handleClick() {
     router.push(`/student/internships/${internshipId}`);
@@ -10,9 +10,9 @@ export default function ApplyButton({ internshipId, isApplied }) {
   return (
     <button
       onClick={handleClick}
-      className={`${isApplied ? "bg-[#f5f6fc] border" : "bg-[#2762ea] text-white"}   px-3 py-2 rounded-xl select-none `}
+      className="bg-[#f5f6fc] border px-1.5 py-0.5 rounded select-none"
     >
-      {isApplied ? "View Details" : "Apply Now"}
+      View Details{" "}
     </button>
   );
 }

@@ -1,7 +1,12 @@
-import InternshipsCard from "@/components/home/InternshipsCard";
 import SearchBar from "@/components/SearchBar";
+import { getInternshipsWithMatchScore } from "@/lib/utils/getInternshipsWithMatchScore";
+import InternshipCardApplied from "./internshipCardApplied";
+import getAppliedInternships from "@/lib/utils/getAppliedInternships";
 
-export default function AppliedPage() {
+export default async function AppliedPage() {
+  const internships = await getInternshipsWithMatchScore();
+  const appliedInternhsips = await getAppliedInternships();
+
   return (
     <div>
       <div className="flex flex-col items-center gap-5 mt-3">
@@ -20,14 +25,21 @@ export default function AppliedPage() {
           <div className="  flex justify-center">
             <div className="w-[70vw]">
               <SearchBar
-                placeholder={"Search by role, company, or keyword..."}
+                placeholder={"Search by role, skills, or sectors..."}
               />
             </div>
           </div>
-          <div>sort</div>
         </div>
-        <div className="flex justify-center mt-8 ">
+        <div className="flex  flex-col justify-center mt-8  gap-10">
           {" "}
+          {appliedInternhsips?.map((internshipData, index) => {
+            return (
+              <InternshipCardApplied
+                key={index}
+                internshipData={internshipData}
+              />
+            );
+          })}
           <div className=" flex flex-col gap-9  w-[65vw]"></div>
         </div>
       </div>

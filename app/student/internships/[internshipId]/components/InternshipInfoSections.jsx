@@ -11,7 +11,12 @@ export default function InternshipInfoSections({ item, index }) {
       </div>
       <div className="flex flex-col text-[0.9rem]">
         <div className="text-gray-600 font-medium">{item.name}</div>
-        <div className="font-semibold">{item.value} </div>
+        <div
+          className={`${item.bgColour && "rounded-xl px-2.5 py-1"} font-semibold`}
+          style={{ backgroundColor: item.bgColour }}
+        >
+          {item.value}{" "}
+        </div>
       </div>
     </div>
   );

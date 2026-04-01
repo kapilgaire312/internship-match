@@ -9,10 +9,15 @@ export default async function ProfilePage() {
   const data = await getStudentProfileInfo();
   //  console.log(data);
 
-  let { basicInfo, currentSectors, allSectors, currentSkills } = data;
-  console.log(currentSectors);
+  let {
+    basicInfo,
+    currentSectors,
+    allSectors,
+    currentSkills,
+    studentResumeDetails,
+  } = data;
+  console.log(studentResumeDetails);
 
-  if (basicInfo) basicInfo.profile_pic = "/my_profile.jpg";
   return (
     <div className="flex flex-col sm:flex-row px-[5vw] gap-10 mt-7">
       <BasicInfoCard basicInfo={basicInfo} />
@@ -24,7 +29,7 @@ export default async function ProfilePage() {
         />
 
         <SkillsSection currentSkills={currentSkills} />
-        <ResumeSection />
+        <ResumeSection studentResumeDetails={studentResumeDetails} />
       </div>
     </div>
   );

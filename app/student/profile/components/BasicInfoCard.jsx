@@ -1,5 +1,6 @@
 import handleSignOutAction from "@/actions/handleSignOutAction";
 import Image from "next/image";
+import EditProfilePicButton from "./EditProfilePicButton";
 
 export default function BasicInfoCard({ basicInfo }) {
   return (
@@ -7,8 +8,12 @@ export default function BasicInfoCard({ basicInfo }) {
       <div className="flex flex-col gap-3">
         {" "}
         <div className="flex flex-col justify-center items-center gap-1">
-          <div className="relative w-[8rem] h-[8rem] rounded-full overflow-clip">
-            <Image src={basicInfo.profile_pic} alt="profile_pic" fill />{" "}
+          <div className="">
+            {" "}
+            <div className="relative w-[8rem] h-[8rem] rounded-full overflow-hidden">
+              <EditProfilePicButton />
+              <Image src={basicInfo.profile_pic} alt="profile_pic" fill />{" "}
+            </div>{" "}
           </div>
           <div className="font-semibold text-xl"> {basicInfo.name}</div>
           <div className="text-gray-600">{basicInfo.major}</div>

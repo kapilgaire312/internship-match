@@ -32,7 +32,7 @@ export default function InternshipInfo({ internshipData }) {
     },
 
     {
-      name: "Application Date",
+      name: "Application Ends",
       value: internshipData.application_date?.toLocaleDateString("en-US", {
         year: "numeric",
         month: "long",
@@ -54,6 +54,7 @@ export default function InternshipInfo({ internshipData }) {
         <ApplyNowButton
           internshipId={internshipData._id?.toString()}
           blockApply={internshipData.blockApply}
+          isApplied={internshipData.isApplied}
         />
       </div>
     </div>
