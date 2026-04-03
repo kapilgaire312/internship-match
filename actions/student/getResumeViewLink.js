@@ -30,7 +30,10 @@ export default async function getResumeViewLink() {
       Key: fileKey,
     });
 
-    const signedUrl = await getSignedUrl(s3Client, command, { expiresIn: 3 });
+    const signedUrl = await getSignedUrl(s3Client, command, {
+      expiresIn: 60 * 5,
+    });
+    console.log(signedUrl);
     return { success: true, signedUrl };
   } catch (error) {
     if (error instanceof CustomError) {
