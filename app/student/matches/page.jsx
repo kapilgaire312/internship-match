@@ -8,15 +8,19 @@ export default async function MatchesPage({ searchParams }) {
   const params = await searchParams;
   const search = params.search;
   const filter = params.filter;
+  let error = false;
 
   const internships = await getInternshipsWithMatchScore(search, filter);
-  console.log(internships);
+  console.log("intern", internships);
+
+  if (internships.error) error = true;
+
   return (
     <div>
       <div className="flex flex-col items-center gap-5 mt-3">
         <div className="flex flex-col items-start ml-[13vw] gap-5">
           <div className="flex justify-left">
-            <div className="w-[70vw]">
+            <div className="w-[82vw]">
               <div className="ml-1">
                 {" "}
                 <p className="text-2xl font-semibold"> Matched Internships</p>
@@ -26,19 +30,21 @@ export default async function MatchesPage({ searchParams }) {
               </div>
             </div>
           </div>
-          <div className="flex mt-2 gap-3">
-            <div className=" ">
-              <div className="w-[67vw] ">
-                <SearchBar
-                  placeholder={"Search by role, skills, or sectors..."}
-                />
+          {!error && (
+            <div className="flex mt-2 gap-3">
+              <div className=" ">
+                <div className="w-[67vw] ">
+                  <SearchBar
+                    placeholder={"Search by role, skills, or sectors..."}
+                  />
+                </div>
+              </div>
+              <div className="flex items-center">
+                {" "}
+                <Filter />{" "}
               </div>
             </div>
-            <div className="flex items-center">
-              {" "}
-              <Filter />{" "}
-            </div>
-          </div>
+          )}
         </div>
         <div className="flex flex-col gap-2  items-center  ">
           <div className="flex justify-start w-full">
@@ -52,11 +58,22 @@ export default async function MatchesPage({ searchParams }) {
             )}
           </div>{" "}
           <div className=" flex flex-col gap-9  w-[65vw]">
-            {internships?.map((internshipInfo, index) => {
-              return (
-                <InternshipsCard key={index} internshipInfo={internshipInfo} />
-              );
-            })}
+            {error || internships.length === 0 ? (
+              <div className="flex justify-center items-center w-[65vw] h-[40vh] bg-white rounded-xl text-xl font-medium text-gray-500">
+                {error
+                  ? internships.message
+                  : "No internhsips matching your skills and sectors found."}
+              </div>
+            ) : (
+              internships?.map((internshipInfo, index) => {
+                return (
+                  <InternshipsCard
+                    key={index}
+                    internshipInfo={internshipInfo}
+                  />
+                );
+              })
+            )}
           </div>
         </div>
       </div>

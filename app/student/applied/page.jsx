@@ -1,11 +1,13 @@
 import SearchBar from "@/components/SearchBar";
-import { getInternshipsWithMatchScore } from "@/lib/utils/getInternshipsWithMatchScore";
 import InternshipCardApplied from "./internshipCardApplied";
 import getAppliedInternships from "@/lib/utils/getAppliedInternships";
 
 export default async function AppliedPage() {
-  const internships = await getInternshipsWithMatchScore();
   const appliedInternhsips = await getAppliedInternships();
+
+  let error = false;
+
+  if (appliedInternhsips.error) error = true;
 
   return (
     <div>
@@ -22,16 +24,26 @@ export default async function AppliedPage() {
           </div>
         </div>
         <div className="flex gap-[5vw] w-[70vw] mt-2">
-          <div className="  flex justify-center">
-            <div className="w-[70vw]">
-              <SearchBar
-                placeholder={"Search by role, skills, or sectors..."}
-              />
+          {!error && (
+            <div className="  flex justify-center">
+              <div className="w-[70vw]">
+                <SearchBar
+                  placeholder={"Search by role, skills, or sectors..."}
+                />
+              </div>
             </div>
-          </div>
+          )}
         </div>
         <div className="flex  flex-col justify-center mt-8  gap-10">
           {" "}
+          {error ||
+            (appliedInternhsips.length === 0 && (
+              <div className="flex justify-center items-center w-[65vw] h-[40vh] bg-white rounded-xl text-xl font-medium text-gray-500">
+                {error
+                  ? appliedInternhsips.error
+                  : "You have'nt applied to any internships yet."}
+              </div>
+            ))}
           {appliedInternhsips?.map((internshipData, index) => {
             return (
               <InternshipCardApplied

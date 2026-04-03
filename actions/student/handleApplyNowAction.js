@@ -37,6 +37,7 @@ export default async function handleApplyNowAction(internshipId) {
     }
 
     if (internship.isClosed || internship.application_date < today) {
+      await closeInternship(internshipId);
       return { error: "Application is closed." };
     }
 

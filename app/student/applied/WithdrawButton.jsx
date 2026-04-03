@@ -79,7 +79,7 @@ export default function WithdrawButton({ internshipId }) {
             </button>
           </div>
           {error && (
-            <div className="text-center text-red-300 text-sm">{error}</div>
+            <div className="text-center text-red-400 text-sm">{error}</div>
           )}
         </DialogContent>
       </Dialog>

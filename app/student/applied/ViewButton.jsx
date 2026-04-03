@@ -12,7 +12,7 @@ export default function ViewButton({ internshipId }) {
       onClick={handleClick}
       className="bg-[#f5f6fc] border px-1.5 py-0.5 rounded select-none"
     >
-      View Details{" "}
+      View Application{" "}
     </button>
   );
 }

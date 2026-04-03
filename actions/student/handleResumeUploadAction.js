@@ -5,6 +5,8 @@ import { auth } from "@/lib/auth";
 import dbConnect from "@/lib/dbConnect";
 import StudentProfile from "@/lib/models/studentProfile-model";
 import { s3Client } from "@/lib/r2";
+import handleStudentSkillsParse from "@/lib/utils/handleStudentSkillsParse";
+import parseResumePdf from "@/lib/utils/parseResumePdf";
 import { PutObjectCommand } from "@aws-sdk/client-s3";
 import { revalidatePath } from "next/cache";
 
@@ -55,6 +57,7 @@ export default async function handleResumeSubmitAction(prevState, formData) {
           file_name: file.name,
           file_size: file.size,
           file_key: uniqueName,
+          parse_status: "pending",
         },
       },
     };
@@ -65,9 +68,10 @@ export default async function handleResumeSubmitAction(prevState, formData) {
       },
       update,
     );
-    console.log(student);
 
     revalidatePath("/student/profile");
+
+    // handleStudentSkillsParse(student._id, buffer, student.skills);
 
     return { success: true };
   } catch (error) {

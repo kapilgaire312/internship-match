@@ -14,56 +14,56 @@ export default function StudentNavbar() {
         <div className="flex gap-9 text-">
           <div className="flex items-center">
             {" "}
-            <div className="bg-[#ebf1f7] rounded-xl flex items-center pr-2 ">
-              <Link className="contents" href="/student/home">
+            <Link className="contents" href="/student/home">
+              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-1 px-2 py-1 hover:opacity-80 active:opacity-60 ">
                 {" "}
-                <div className="relative h-12 w-10 bottom-0.5">
+                <div className="relative h-5 w-6 ">
                   {" "}
-                  <Image src="/home-logo.webp" alt="home-logo" fill />{" "}
+                  <Image src="/home-icon.svg" alt="home-logo" fill />{" "}
                 </div>
                 Home
-              </Link>
-            </div>{" "}
+              </div>{" "}
+            </Link>
           </div>
           <div className="flex items-center">
             {" "}
-            <div className="bg-[#ebf1f7] rounded-xl flex items-center pr-2">
-              <Link className="contents" href="/student/matches">
+            <Link className="contents" href="/student/matches">
+              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1 hover:opacity-80 active:opacity-60 ">
                 {" "}
-                <div className="relative h-12 w-10">
+                <div className="relative h-4 w-4">
                   {" "}
-                  <Image src="/matches-logo.webp" alt="home-logo" fill />{" "}
+                  <Image src="/matches-icon.svg" alt="home-logo" fill />{" "}
                 </div>
                 Matches{" "}
-              </Link>
-            </div>{" "}
+              </div>{" "}
+            </Link>
           </div>
           <div className="flex items-center">
             {" "}
-            <div className="bg-[#ebf1f7] rounded-xl flex items-center pr-2 ">
-              {" "}
-              <Link className="contents" href="/student/applied">
-                <div className="relative h-12 w-10 bottom-0.5">
+            <Link className="contents" href="/student/applied">
+              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1  hover:opacity-80 active:opacity-60 ">
+                {" "}
+                <div className="relative h-4 w-4 ">
                   {" "}
-                  <Image src="/applied-logo.webp" alt="home-logo" fill />{" "}
+                  <Image src="/applied-icon.svg" alt="home-logo" fill />{" "}
                 </div>
                 Applied{" "}
-              </Link>
-            </div>{" "}
+              </div>{" "}
+            </Link>
           </div>
 
           <div className="flex items-center">
             {" "}
-            <div className="bg-[#ebf1f7] rounded-xl flex items-center pr-3 ">
-              {" "}
-              <Link className="contents" href="/student/profile">
-                <div className="relative h-12 w-10 bottom-1 mr-0.5">
+            <Link className="contents" href="/student/profile">
+              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1 hover:opacity-80 active:opacity-60 ">
+                {" "}
+                <div className="relative h-4 w-4 ">
                   {" "}
-                  <Image src="/profile-logo.webp" alt="home-logo" fill />{" "}
+                  <Image src="/profile-icon.svg" alt="home-logo" fill />{" "}
                 </div>
                 Profile{" "}
-              </Link>
-            </div>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

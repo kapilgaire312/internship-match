@@ -1,5 +1,4 @@
 import { formatSalary } from "@/utils/formatSalary";
-import Image from "next/image";
 import InternshipInfoSections from "./InternshipInfoSections";
 import ApplyNowButton from "./ApplyNowButton";
 

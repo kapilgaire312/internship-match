@@ -2,9 +2,22 @@ import { formatSalary } from "@/utils/formatSalary";
 import Image from "next/image";
 import ApplyButton from "./ApplyButton";
 import { mapSkills } from "@/utils/mapSkills";
+import { getRemainingTime } from "@/utils/getTimeAgo";
+import closeInternship from "@/lib/utils/closeInternship";
 
 export default function InternshipsCard({ internshipInfo }) {
   const internshipId = internshipInfo._id.toString();
+  let timeRemaining = getRemainingTime(internshipInfo.application_date);
+  let isClosed = false;
+  if (timeRemaining === "Closed") {
+    isClosed = true;
+    closeInternship(internshipId);
+  }
+  if (internshipInfo.isClosed) {
+    timeRemaining = "Closed";
+    isClosed = true;
+  }
+
   return (
     <div className="flex justify-between border-b-2 border-gray-200 pt-4 pb-8  pl-4 pr-8 bg-white rounded-xl">
       <div className="flex justify-start gap-4">
@@ -40,6 +53,14 @@ export default function InternshipsCard({ internshipInfo }) {
               </div>
               {formatSalary(internshipInfo.salary)} / month
             </div>
+            <div className="flex gap-1">
+              {" "}
+              <div className="relative h-4 w-4 top-1">
+                {" "}
+                <Image src="/time-period.svg" fill alt="company" />
+              </div>
+              {timeRemaining}{" "}
+            </div>
           </div>
           <div className="flex gap-3 items-center">
             {internshipInfo.matchedSkills && (
@@ -63,6 +84,7 @@ export default function InternshipsCard({ internshipInfo }) {
         <ApplyButton
           internshipId={internshipId}
           isApplied={internshipInfo.isApplied}
+          isClosed={isClosed}
         />
       </div>
     </div>

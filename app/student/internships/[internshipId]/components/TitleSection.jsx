@@ -19,7 +19,7 @@ export default function TitleSection({ internshipData }) {
           </div>
         </div>
       </div>
-      <div>
+      <div className="flex flex-col gap-2 items-center">
         <div
           className={`flex gap-2 rounded-2xl py-1 px-2 text-[0.9rem] font-medium`}
           style={{ backgroundColor: matchColour }}
@@ -32,6 +32,9 @@ export default function TitleSection({ internshipData }) {
           )}
           Match
         </div>
+        {internshipData.isClosed && (
+          <div className="bg-gray-400 px-2 py-1 rounded-xl">Closed </div>
+        )}
       </div>
     </div>
   );

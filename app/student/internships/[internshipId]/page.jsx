@@ -21,7 +21,6 @@ export default async function InternshipPage({ params }) {
 
   const internshipData = await getInternshipData(internshipId);
 
-  console.log(internshipData);
   internshipData.company_logo = "/demoImage.webp";
   return (
     <div className="px-10 flex flex-col gap-5">
