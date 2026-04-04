@@ -1,12 +1,14 @@
-import Link from "next/link";
 import InternshipsCard from "./InternshipsCard";
 import { getSuggestedInternships } from "@/lib/utils/getSuggestedInternships";
 import BackButton from "./BackButton";
 
 export default async function InternshipsBlock({ search }) {
   const internshipsBySector = await getSuggestedInternships(search);
+  let error = false;
 
-  if (internshipsBySector.error) return <div>nothinf</div>;
+  if (internshipsBySector.error) {
+    error = true;
+  }
   return (
     <div className="flex justify-center">
       {" "}
@@ -28,11 +30,21 @@ export default async function InternshipsBlock({ search }) {
             </div>
           </div>
         )}
-        <div className="flex flex-col gap-6 mt-6">
-          {internshipsBySector?.map((item) => {
-            return <InternshipsCard key={item._id} internshipInfo={item} />;
-          })}
-        </div>
+        {error ? (
+          <div className="flex justify-center items-center  h-[40vh] bg-white rounded-xl text-xl font-medium text-gray-500">
+            Error getting the internhsips. Try again.
+          </div>
+        ) : internshipsBySector.length === 0 ? (
+          <div className="flex justify-center items-center  h-[40vh] bg-white rounded-xl text-xl font-medium text-gray-500">
+            {search ? "No internsips found." : " No internsips available."}
+          </div>
+        ) : (
+          <div className="flex flex-col gap-6 mt-6">
+            {internshipsBySector?.map((item) => {
+              return <InternshipsCard key={item._id} internshipInfo={item} />;
+            })}
+          </div>
+        )}
       </div>
     </div>
   );
