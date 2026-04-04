@@ -48,6 +48,7 @@ export default async function InternshipPage({ params }) {
                 status: internshipData.status,
                 appliedDate: internshipData.appliedDate,
                 internshipId: internshipData._id.toString(),
+                isClosed: internshipData.isClosed,
               }}
             />
           )}

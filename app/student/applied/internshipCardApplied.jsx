@@ -75,7 +75,10 @@ export default function InternshipCardApplied({ internshipData }) {
         <div className="flex gap-10 items-center">
           {internshipData.status === "pending" && (
             <div>
-              <WithdrawButton internshipId={internshipId} />
+              <WithdrawButton
+                internshipId={internshipId}
+                isClosed={internshipInfo.isClosed}
+              />
             </div>
           )}
           <div>

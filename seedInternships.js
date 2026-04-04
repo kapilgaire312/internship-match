@@ -186,7 +186,7 @@ Continuously learn and apply new technologies.
       responsibilities: buildResponsibilities(),
       openings: 3,
       level: "Beginner",
-      isClosed: false,
+      isClosed: true,
       application_date: new Date("2026-05-01"),
     },
 

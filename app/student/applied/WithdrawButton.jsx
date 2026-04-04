@@ -12,7 +12,7 @@ import {
 import handleWithdrawAction from "@/actions/student/handleWithdrawAction";
 import LoadingButton from "@/components/ui/LoadingButton";
 
-export default function WithdrawButton({ internshipId }) {
+export default function WithdrawButton({ internshipId, isClosed }) {
   const [open, setOpen] = useState(false); // controlled open state
   const router = useRouter();
 
@@ -46,6 +46,7 @@ export default function WithdrawButton({ internshipId }) {
     }
   }, [open]);
 
+  if (isClosed) return <></>;
   return (
     <>
       <Dialog open={open} onOpenChange={setOpen}>

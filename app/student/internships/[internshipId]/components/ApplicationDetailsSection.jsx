@@ -42,7 +42,10 @@ export default async function ApplicationDetailsSection({ internshipData }) {
         </div>
         {internshipData.status === "pending" ? (
           <div className="flex justify-center">
-            <WithdrawButton internshipId={internshipData.internshipId} />{" "}
+            <WithdrawButton
+              internshipId={internshipData.internshipId}
+              isClosed={internshipData.isClosed}
+            />{" "}
           </div>
         ) : (
           <div

@@ -33,7 +33,7 @@ export default function TitleSection({ internshipData }) {
           Match
         </div>
         {internshipData.isClosed && (
-          <div className="bg-gray-400 px-2 py-1 rounded-xl">Closed </div>
+          <div className="bg-gray-300 px-2 py-1 rounded-xl">Closed </div>
         )}
       </div>
     </div>

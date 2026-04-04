@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-export default function StudentNavbar() {
+export default function CompanyNavbar() {
   return (
     <nav className="sticky top-0 z-10 bg-[#f5f6fc] transition-all-300">
       {" "}
@@ -14,47 +14,43 @@ export default function StudentNavbar() {
         <div className="flex gap-9 text-">
           <div className="flex items-center">
             {" "}
-            <Link className="contents" href="/student/home">
-              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-1 px-2 py-1 hover:opacity-80 active:opacity-60 ">
-                {" "}
-                <div className="relative h-5 w-6 ">
-                  {" "}
-                  <Image src="/home-icon.svg" alt="home-logo" fill />{" "}
-                </div>
-                Home
-              </div>{" "}
-            </Link>
-          </div>
-          <div className="flex items-center">
-            {" "}
-            <Link className="contents" href="/student/matches">
+            <Link className="contents" href="/company/dashboard">
               <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1 hover:opacity-80 active:opacity-60 ">
-                {" "}
-                <div className="relative h-4 w-4">
-                  {" "}
-                  <Image src="/matches-icon.svg" alt="home-logo" fill />{" "}
-                </div>
-                Matches{" "}
-              </div>{" "}
-            </Link>
-          </div>
-          <div className="flex items-center">
-            {" "}
-            <Link className="contents" href="/student/applied">
-              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1  hover:opacity-80 active:opacity-60 ">
                 {" "}
                 <div className="relative h-4 w-4 ">
                   {" "}
-                  <Image src="/applied-icon.svg" alt="home-logo" fill />{" "}
+                  <Image
+                    src="/dashboard-icon.svg"
+                    alt="dashboard-icon"
+                    fill
+                  />{" "}
                 </div>
-                Applied{" "}
+                Dashboard
               </div>{" "}
             </Link>
           </div>
 
           <div className="flex items-center">
             {" "}
-            <Link className="contents" href="/student/profile">
+            <Link className="contents" href="/company/internships">
+              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1  hover:opacity-80 active:opacity-60 ">
+                {" "}
+                <div className="relative h-4 w-4 ">
+                  {" "}
+                  <Image
+                    src="/internships-icon.svg"
+                    alt="internships-icon"
+                    fill
+                  />{" "}
+                </div>
+                Internships{" "}
+              </div>{" "}
+            </Link>
+          </div>
+
+          <div className="flex items-center">
+            {" "}
+            <Link className="contents" href="/company/profile">
               <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1 hover:opacity-80 active:opacity-60 ">
                 {" "}
                 <div className="relative h-4 w-4 ">
