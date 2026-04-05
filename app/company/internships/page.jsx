@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Internships() {
   return (
     <div className="felx justify-center px-10 py-4">
@@ -10,9 +12,12 @@ export default function Internships() {
           <div className="flex items-center justify-between bg-white py-6 px-6 rounded ">
             <div className="text-xl font-semibold">Post New Internhsip</div>
             <div>
-              <button className="bg-[#2762ea] text-white py-2 px-8 rounded">
-                Post Internship
-              </button>
+              <Link href="internships/new">
+                {" "}
+                <button className="bg-[#2762ea] text-white py-2 px-8 rounded hover:opacity-80 active:opacity-60   cursor-pointer">
+                  Post Internship
+                </button>
+              </Link>
             </div>
           </div>{" "}
         </div>
