@@ -1,6 +1,12 @@
+import getReleasedInternships from "@/lib/utils/company/getReleasedInternships";
 import Link from "next/link";
+import ReleasedIternshipCard from "./ReleasedInternhsipCard";
 
-export default function Internships() {
+export default async function Internships() {
+  const releasedInternships = await getReleasedInternships();
+  console.log(releasedInternships);
+
+  if (releasedInternships.error) return <div>error</div>;
   return (
     <div className="felx justify-center px-10 py-4">
       <div className="flex flex-col gap-5">
@@ -22,9 +28,18 @@ export default function Internships() {
           </div>{" "}
         </div>
         <div>
-          <div className="flex items-center justify-between bg-white py-6 px-6 rounded ">
-            <div className="font-medium text-xl">Released Internships</div>
-            <div className="flex flex-col"></div>
+          <div className="flex flex-col  items-left bg-white py-6 px-6 rounded gap-9">
+            <div className="font-medium text-2xl">Released Internships</div>
+            <div className="flex flex-col gap-6">
+              {releasedInternships.map((internshipInfo, index) => {
+                return (
+                  <ReleasedIternshipCard
+                    key={index}
+                    internshipInfo={internshipInfo}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
