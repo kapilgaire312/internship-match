@@ -4,7 +4,6 @@ import ReleasedIternshipCard from "./ReleasedInternhsipCard";
 
 export default async function Internships() {
   const releasedInternships = await getReleasedInternships();
-  console.log(releasedInternships);
 
   if (releasedInternships.error) return <div>error</div>;
   return (
