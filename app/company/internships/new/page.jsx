@@ -1,6 +1,7 @@
 import Back from "@/components/company/Back";
 import Link from "next/link";
 import SummaryInfoSection from "./components/SummaryInfoSection";
+import DetailedInfoSection from "./components/DetailedInfoSection";
 
 export default async function NewInternship() {
   return (
@@ -17,6 +18,7 @@ export default async function NewInternship() {
           </div>
         </div>
         <SummaryInfoSection />
+        <DetailedInfoSection />
       </div>
     </div>
   );
