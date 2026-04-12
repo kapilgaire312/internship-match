@@ -8,7 +8,13 @@ export default function CompanyNavbar() {
         <Link href="/student/home" className="contents">
           {" "}
           <div className="relative w-54 h-13">
-            <Image src="/InternKaji.webp" alt="logo" fill />
+            <Image
+              src="/InternKaji.webp"
+              alt="logo"
+              loading="eager"
+              fill
+              sizes="(min-width: 6 vw) 33vw"
+            />
           </div>
         </Link>
         <div className="flex gap-9 text-">

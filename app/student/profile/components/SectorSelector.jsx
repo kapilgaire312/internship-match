@@ -12,7 +12,11 @@ import {
 } from "@/components/ui/command";
 import { useState } from "react";
 
-export default function CommandBasic({ availableSectors, handleSectorSelect }) {
+export default function SectorSelector({
+  availableSectors,
+  handleSectorSelect,
+  choose,
+}) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -21,9 +25,9 @@ export default function CommandBasic({ availableSectors, handleSectorSelect }) {
         {" "}
         <button
           onClick={() => setOpen(true)}
-          className="shadow-xs h-10 bg-[#f5f6fc] rounded px-2 py-1 max-w-fit , text "
+          className="shadow-xs h-10 bg-[#f5f6fc] rounded px-2 py-1 max-w-fit cursor-pointer "
         >
-          + Add Sector
+          {choose ? "Select Sector" : "+ Add Sector"}
         </button>
       </div>
       <CommandDialog open={open} onOpenChange={setOpen}>

@@ -1,9 +1,10 @@
 import Back from "@/components/company/Back";
-import Link from "next/link";
-import SummaryInfoSection from "./components/SummaryInfoSection";
-import DetailedInfoSection from "./components/DetailedInfoSection";
+
+import getAllSectors from "@/lib/utils/getAllSectors";
+import InternshipForm from "./components/InternshipForm";
 
 export default async function NewInternship() {
+  const allSectors = await getAllSectors();
   return (
     <div className="felx justify-center px-10 py-4">
       <div className="flex flex-col gap-5">
@@ -17,8 +18,7 @@ export default async function NewInternship() {
             <div className="text-3xl font-semibold">Post New Internship</div>
           </div>
         </div>
-        <SummaryInfoSection />
-        <DetailedInfoSection />
+        <InternshipForm allSectors={allSectors} />
       </div>
     </div>
   );
