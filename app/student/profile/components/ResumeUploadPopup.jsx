@@ -89,7 +89,7 @@ export default function ResumeUploadPopup({ open, setOpen }) {
             />
 
             <div
-              className={`flex flex-col ${
+              className={`flex flex-col px-4 ${
                 isDragging ? "border-blue-500 bg-blue-50" : "border-gray-300"
               } items-center border-2 border-dotted py-18 gap-1 cursor-pointer ${!file && "hover:opacity-80 active:opacity-60"} select-none`}
               onClick={handleClick}
@@ -120,7 +120,7 @@ export default function ResumeUploadPopup({ open, setOpen }) {
                     <div className="relative h-8 w-8">
                       <Image src="/file-logo.svg" fill alt="file-icon" />
                     </div>
-                    <div className="flex flex-col items-center ">
+                    <div className="flex flex-col items-center  ">
                       {" "}
                       <p>{file.name}</p>
                       <p>{getFileSizeKB(file.size)}</p>

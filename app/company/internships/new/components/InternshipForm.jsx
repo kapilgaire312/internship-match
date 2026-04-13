@@ -12,10 +12,6 @@ export default function InternshipForm({ allSectors }) {
     null,
   );
 
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
-
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && e.target.tagName !== "TEXTAREA") {
       e.preventDefault();
@@ -31,7 +27,12 @@ export default function InternshipForm({ allSectors }) {
         rawData={state?.rawData}
         errorMessageArray={state?.messageArray}
       />
-      <DetailedInfoSection allSectors={allSectors} />
+      <DetailedInfoSection
+        allSectors={allSectors}
+        errorMessage={state?.message}
+        rawData={state?.rawData}
+        errorMessageArray={state?.messageArray}
+      />
       <div className="flex justify-end gap-8 px-7 items-center">
         <Link href={"/company/internships"}>
           <button

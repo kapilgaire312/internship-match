@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-export default function Back() {
+export default function Back({ message }) {
   const router = useRouter();
 
   function handleClick() {
@@ -11,12 +11,13 @@ export default function Back() {
   }
 
   return (
-    <div>
-      <button onClick={handleClick} className="flex">
+    <div className="cursor-pointer flex " onClick={handleClick}>
+      <button className="flex">
         <div className="relative w-8 h-6">
           <Image src="/back-arrow-logo.svg" fill alt="back-icon" />
         </div>
       </button>
+      {message}
     </div>
   );
 }

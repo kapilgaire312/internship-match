@@ -36,6 +36,7 @@ export default async function handleDeleteResumeAction() {
 
     await s3Client.send(command);
     student.resume_details = null;
+    student.parsed_skills = undefined;
     await student.save();
     return { success: true };
   } catch (error) {

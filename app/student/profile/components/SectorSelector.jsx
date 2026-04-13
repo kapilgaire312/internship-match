@@ -24,6 +24,7 @@ export default function SectorSelector({
       <div className="flex justify-center">
         {" "}
         <button
+          type="button"
           onClick={() => setOpen(true)}
           className="shadow-xs h-10 bg-[#f5f6fc] rounded px-2 py-1 max-w-fit cursor-pointer "
         >
