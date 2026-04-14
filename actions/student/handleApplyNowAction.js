@@ -43,7 +43,7 @@ export default async function handleApplyNowAction(internshipId) {
 
     const student = await StudentProfile.findOne({ student_id: studentId });
     console.log(internshipId);
-    const { matchScore } = calculateMatchScore(
+    const { matchScore, matchedSkills } = calculateMatchScore(
       internship.parsed_required_skills,
       student.parsed_skills,
     );
@@ -55,6 +55,7 @@ export default async function handleApplyNowAction(internshipId) {
       student_id: studentId,
       internship_id: internshipId,
       match_score: matchScore,
+      matched_skills: matchedSkills,
     });
     newApplication.save();
 

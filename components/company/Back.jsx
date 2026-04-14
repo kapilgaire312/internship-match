@@ -11,7 +11,10 @@ export default function Back({ message }) {
   }
 
   return (
-    <div className="cursor-pointer flex " onClick={handleClick}>
+    <div
+      className="cursor-pointer flex text-gray-600 font-medium "
+      onClick={handleClick}
+    >
       <button className="flex">
         <div className="relative w-8 h-6">
           <Image src="/back-arrow-logo.svg" fill alt="back-icon" />

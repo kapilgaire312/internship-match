@@ -1,0 +1,58 @@
+import { getMatchColour } from "@/lib/utils/getInternshipsWithMatchScore";
+import { mapSkills } from "@/utils/mapSkills";
+import Image from "next/image";
+
+export default function ApplicationSection({ applicantInfo }) {
+  const matchColour = getMatchColour(applicantInfo.match_score);
+  return (
+    <div>
+      <div className="flex gap-5 items-start bg-white rounded py-4 px-6 justify-between w-[65vw]">
+        <div className="flex gap-5 items-start">
+          <div>
+            <div className="relative w-18 h-18 rounded-full overflow-hidden">
+              <Image src={applicantInfo.profilePicUrl} fill alt="profile_pic" />
+            </div>
+          </div>
+          <div className="flex flex-col gap-3">
+            <div className="flex gap-4 items-center">
+              <div className="text-xl font-medium">{applicantInfo.name}</div>
+              <div
+                className={`bg-[${matchColour}] px-2 rounded-xl py-1 font-medium`}
+              >
+                {applicantInfo.match_score}% Match
+              </div>
+            </div>
+            <div className="flex gap-6 items-center text-gray-500 font-medium">
+              <div className="flex gap-1 items-center">
+                <div className="relative w-5 h-5 ">
+                  <Image
+                    src={"/university-logo.svg"}
+                    fill
+                    alt="university-icon"
+                  />
+                </div>
+                {applicantInfo.major || "--"},{" "}
+                {applicantInfo.university || "--"}
+              </div>
+              <div className="flex items-center gap-1">
+                {" "}
+                <div className="relative w-4 h-5 ">
+                  <Image src={"/applied-icon.svg"} fill alt="batch-icon" />
+                </div>
+                Batch {applicantInfo.batch_year || "--"}
+              </div>
+            </div>
+            <div className="flex gap-2 flex-wrap">
+              {applicantInfo.skills.map(mapSkills) || "--"}
+            </div>
+          </div>
+        </div>
+        <div className="flex gap-1">
+          <div>Reject</div>
+          <div>Accept</div>
+          <div>??</div>
+        </div>
+      </div>
+    </div>
+  );
+}
