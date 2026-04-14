@@ -6,6 +6,7 @@ import CompanyProfile from "@/lib/models/companyProfile-model";
 import Internship from "@/lib/models/internship-model";
 import parseRequiredSkills from "@/lib/utils/company/parseRequiredSkills";
 import { newInternshipSchema } from "@/lib/utils/newInternship.validation";
+import { revalidatePath } from "next/cache";
 import { ZodError } from "zod";
 
 export default async function handlePostNewInternshipAction(
@@ -104,6 +105,8 @@ export default async function handlePostNewInternshipAction(
     };
 
     parseRequiredSkills(jobDetails, newInternship._id);
+
+    revalidatePath("/company/internships");
 
     return { success: true };
   } catch (error) {

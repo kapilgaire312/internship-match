@@ -1,20 +1,16 @@
 "use client";
 
-import { AddSkillsPopup } from "@/app/student/profile/components/AddSkillsPopup";
-import SectorSelector from "@/app/student/profile/components/SectorSelector";
 import { useEffect, useState } from "react";
 import DetailedInfoInputs from "./DetailedInfoInputs";
 import { errorMessageHandler, getDetailedSectionInfo } from "../utils";
 import SectorSection from "./SectorSection";
 import SkillsSection from "./SkillsSection";
 
-export default function DetailedInfoSection({
-  allSectors,
-  errorMessage,
-  rawData,
-  errorMessageArray,
-}) {
+export default function DetailedInfoSection({ allSectors, state, isPending }) {
   console.log(allSectors);
+  const errorMessage = state?.message;
+  const rawData = state?.rawData;
+  const errorMessageArray = state?.messageArray;
 
   const [originalErrors, setOriginalErrors] = useState(new Map());
   const [error, setError] = useState(new Map());
@@ -66,7 +62,7 @@ export default function DetailedInfoSection({
         <SectorSection allSectors={allSectors} error={error} />
         <SkillsSection error={error} />
         <div className="text-sm text-red-400 flex justify-center">
-          {errorMessage && <p>{errorMessage}</p>}
+          {!isPending && errorMessage && <p>{errorMessage}</p>}
         </div>
       </div>
     </div>
