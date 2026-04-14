@@ -3,8 +3,8 @@
 import Link from "next/link";
 import DetailedInfoSection from "./DetailedInfoSection";
 import SummaryInfoSection from "./SummaryInfoSection";
-import { useActionState, useEffect } from "react";
-import handlePostNewInternshipAction from "@/actions/handlePostNewInternhsipAction";
+import { useActionState } from "react";
+import handlePostNewInternshipAction from "@/actions/company/handlePostNewInternhsipAction";
 
 export default function InternshipForm({ allSectors }) {
   const [state, formAction, isPending] = useActionState(

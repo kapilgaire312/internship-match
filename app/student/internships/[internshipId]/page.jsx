@@ -21,6 +21,8 @@ export default async function InternshipPage({ params }) {
 
   const internshipData = await getInternshipData(internshipId);
 
+  console.log("internwalaa", internshipData);
+
   internshipData.company_logo = "/demoImage.webp";
   return (
     <div className="px-10 flex flex-col gap-5">
@@ -37,11 +39,11 @@ export default async function InternshipPage({ params }) {
         </div>
       </Link>
       <div className="flex gap-5">
-        <div className="bg-white w-full px-[2vw] rounded py-8 gap-8 flex flex-col">
+        <div className="w-[70vw]  bg-white  px-[2vw] rounded py-8 gap-8 flex flex-col overflow-hidden">
           <TitleSection internshipData={internshipData} />
           <BodySection internshipData={internshipData} />
         </div>
-        <div className="w-110 flex flex-col gap-5">
+        <div className="flex w-110 flex-col gap-5">
           {internshipData.isApplied && (
             <ApplicationDetailsSection
               internshipData={{

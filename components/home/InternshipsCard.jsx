@@ -6,7 +6,7 @@ import { getRemainingTime } from "@/utils/getTimeAgo";
 import closeInternship from "@/lib/utils/closeInternship";
 
 export default function InternshipsCard({ internshipInfo }) {
-  const internshipId = internshipInfo._id.toString();
+  const internshipId = internshipInfo._id?.toString();
   let timeRemaining = getRemainingTime(internshipInfo.application_date);
   let isClosed = false;
   if (timeRemaining === "Closed") {

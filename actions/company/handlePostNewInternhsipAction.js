@@ -4,6 +4,7 @@ import { auth } from "@/lib/auth";
 import dbConnect from "@/lib/dbConnect";
 import CompanyProfile from "@/lib/models/companyProfile-model";
 import Internship from "@/lib/models/internship-model";
+import parseRequiredSkills from "@/lib/utils/company/parseRequiredSkills";
 import { newInternshipSchema } from "@/lib/utils/newInternship.validation";
 import { ZodError } from "zod";
 
@@ -57,14 +58,15 @@ export default async function handlePostNewInternshipAction(
     const companyId = session.user.userId;
 
     //check if the company Id is correct
-    const company = await CompanyProfile.find({ company_id: companyId });
+    const company = await CompanyProfile.findOne({
+      company_id: companyId,
+    }).lean();
     if (!company) {
       return {
         error: true,
         message: "Not logged in as a company.",
       };
     }
-
     const newInternship = await Internship.create({
       title: rawData.internshipTitle,
       company_id: companyId,
@@ -90,6 +92,18 @@ export default async function handlePostNewInternshipAction(
     if (!newInternship) throw new Error("Failed saving the internship");
     console.log(newInternship);
     console.log("done");
+
+    /// send request to parse the required skills
+    const jobDetails = {
+      title: rawData.internshipTitle,
+      required_skills: rawData.requiredSkills,
+      job_description: rawData.jobDescription,
+      eligibility: rawData.eligibility,
+      responsibilities: rawData.responsibilities,
+      level: rawData.level,
+    };
+
+    parseRequiredSkills(jobDetails, newInternship._id);
 
     return { success: true };
   } catch (error) {

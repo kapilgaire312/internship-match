@@ -48,6 +48,7 @@ export default function SkillsSection({ error }) {
               >
                 {item}
                 <button
+                  type="button"
                   onClick={() => handleDeleteSkill(index)}
                   className="hover:opacity-70  cursor-pointer text-gray-600 rounded-full bg-gray-500 w-5 text-xs h-5 flex justify-center items-center text-white"
                 >

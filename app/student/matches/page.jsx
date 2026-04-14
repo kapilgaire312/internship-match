@@ -11,7 +11,6 @@ export default async function MatchesPage({ searchParams }) {
   let error = false;
 
   const internships = await getInternshipsWithMatchScore(search, filter);
-  console.log("intern", internships);
 
   if (internships.error) error = true;
 
