@@ -3,7 +3,7 @@ import RegisterComp from "../RegisterComp";
 export default function CompanyRegisterForm() {
   return (
     <div>
-      <RegisterComp />
+      <RegisterComp role="company" />
     </div>
   );
 }

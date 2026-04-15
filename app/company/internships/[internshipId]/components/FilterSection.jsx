@@ -66,7 +66,7 @@ export default function FilterSection({ search }) {
           <div className="font-medium">Sort By</div>
           <div className="flex gap-3 items-center">
             <input
-              className="w-5 h-5"
+              className="w-5 h-5 cursor-pointer"
               type="checkbox"
               checked={sortByValue === ""}
               onChange={() => {
@@ -77,7 +77,7 @@ export default function FilterSection({ search }) {
           </div>
           <div className="flex gap-2 items-center">
             <input
-              className="w-5 h-5"
+              className="w-5 h-5  cursor-pointer"
               type="checkbox"
               checked={sortByValue === "matchScore"}
               onChange={() => {
@@ -92,7 +92,7 @@ export default function FilterSection({ search }) {
           <div className="font-medium">Application Status</div>
           <div className="flex gap-3 items-center">
             <input
-              className="w-5 h-5"
+              className="w-5 h-5 cursor-pointer"
               type="checkbox"
               checked={statusValue === ""}
               onChange={() => {
@@ -103,7 +103,7 @@ export default function FilterSection({ search }) {
           </div>
           <div className="flex gap-2 items-center">
             <input
-              className="w-5 h-5"
+              className="w-5 h-5 cursor-pointer"
               type="checkbox"
               checked={statusValue === "shortlisted"}
               onChange={() => {
@@ -114,7 +114,7 @@ export default function FilterSection({ search }) {
           </div>{" "}
           <div className="flex gap-2 items-center">
             <input
-              className="w-5 h-5"
+              className="w-5 h-5 cursor-pointer"
               type="checkbox"
               checked={statusValue === "pending"}
               onChange={() => {

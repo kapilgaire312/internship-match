@@ -12,7 +12,7 @@ export default function Back({ message }) {
 
   return (
     <div
-      className="cursor-pointer flex text-gray-600 font-medium "
+      className="cursor-pointer flex text-gray-600 font-medium  hover:underline"
       onClick={handleClick}
     >
       <button className="flex">

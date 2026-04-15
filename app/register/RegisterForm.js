@@ -5,13 +5,13 @@ import { useState } from "react";
 import { useFormStatus } from "react-dom";
 import { email } from "zod";
 
-export default function RegisterForm() {
+export default function RegisterForm({ role }) {
   const [error, setError] = useState();
   const { pending } = useFormStatus();
   const [typedValues, setTypedValues] = useState({ name: "", email: "" });
 
   async function handleSubmit(formdata) {
-    const response = await handleRegisterAction(formdata);
+    const response = await handleRegisterAction(formdata, role);
     console.log(response);
     if (response?.error) {
       setError(response);

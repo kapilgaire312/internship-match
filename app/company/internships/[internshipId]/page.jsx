@@ -7,7 +7,11 @@ export default async function InternshipApplicants({ params, searchParams }) {
   const { internshipId } = await params;
   const { sortBy, status } = await searchParams;
   console.log(sortBy, status);
-  const applicants = await getApplicants(internshipId, sortBy, status);
+  const { applicantsList, internshipTitle } = await getApplicants(
+    internshipId,
+    sortBy,
+    status,
+  );
   return (
     <div className="felx justify-center px-10 py-4">
       <div className="flex flex-col gap-5">
@@ -16,12 +20,12 @@ export default async function InternshipApplicants({ params, searchParams }) {
           <Back message={"Back to internships"} />{" "}
         </div>
         <div className="text-3xl font-semibold">
-          Applicants for this Internship
+          Applicants for {internshipTitle}{" "}
         </div>
         <div className="flex justify-end">Retrive shortlisted email</div>
         <div className="flex gap-6">
           <div className="flex flex-col gap-6">
-            {applicants.map((item, index) => {
+            {applicantsList.map((item, index) => {
               return <ApplicationSection key={index} applicantInfo={item} />;
             })}{" "}
           </div>

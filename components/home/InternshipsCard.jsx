@@ -74,10 +74,10 @@ export default function InternshipsCard({ internshipInfo }) {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-8 items-center">
         {!isNaN(internshipInfo.matchScore) && (
           <div
-            className={`rounded-2xl text-sm text-center py-0.5`}
+            className={`rounded-2xl w-fit px-4  text-sm text-center py-0.5`}
             style={{ backgroundColor: internshipInfo.matchColour }}
           >
             {internshipInfo.matchScore}% Match
