@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import Image from "next/image";
 import TitleSection from "./components/TitleSection";
 import BodySection from "./components/BodySection";
