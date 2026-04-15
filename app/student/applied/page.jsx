@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import SearchBar from "@/components/SearchBar";
 import InternshipCardApplied from "./internshipCardApplied";
 import getAppliedInternships from "@/lib/utils/getAppliedInternships";
@@ -44,14 +45,15 @@ export default async function AppliedPage() {
                   : "You have'nt applied to any internships yet."}
               </div>
             ))}
-          {appliedInternhsips?.map((internshipData, index) => {
-            return (
-              <InternshipCardApplied
-                key={index}
-                internshipData={internshipData}
-              />
-            );
-          })}
+          {!error &&
+            appliedInternhsips?.map((internshipData, index) => {
+              return (
+                <InternshipCardApplied
+                  key={index}
+                  internshipData={internshipData}
+                />
+              );
+            })}
           <div className=" flex flex-col gap-9  w-[65vw]"></div>
         </div>
       </div>

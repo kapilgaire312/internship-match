@@ -11,12 +11,12 @@ export default function BasicInfoCard({ basicInfo }) {
           <div className="">
             {" "}
             <div className="relative w-[8rem] h-[8rem] rounded-full overflow-hidden">
-              <EditProfilePicButton profilePicSrc={basicInfo.profile_pic} />
-              <Image src={basicInfo.profile_pic} alt="profile_pic" fill />{" "}
+              <EditProfilePicButton profilePicSrc={basicInfo?.profile_pic} />
+              <Image src={basicInfo?.profile_pic} alt="profile_pic" fill />{" "}
             </div>{" "}
           </div>
-          <div className="font-semibold text-xl"> {basicInfo.name}</div>
-          <div className="text-gray-600">{basicInfo.major}</div>
+          <div className="font-semibold text-xl"> {basicInfo?.name}</div>
+          <div className="text-gray-600">{basicInfo?.major}</div>
         </div>
         <div className="text-gray-600 flex flex-col gap-1">
           <div className="flex items-center gap-2 ">
@@ -25,7 +25,7 @@ export default function BasicInfoCard({ basicInfo }) {
               {" "}
               <Image src="/email-logo.svg" fill alt="email-logo" />
             </div>{" "}
-            {basicInfo.email}
+            {basicInfo?.email}
           </div>
           <div className="flex items-center gap-2 ">
             {" "}
@@ -33,7 +33,7 @@ export default function BasicInfoCard({ basicInfo }) {
               {" "}
               <Image src="/location-logo.svg" fill alt="email-logo" />
             </div>{" "}
-            {basicInfo.address ? basicInfo.address : "--"}
+            {basicInfo?.address ? basicInfo.address : "--"}
           </div>
           <div className="flex items-center gap-2 ">
             {" "}
@@ -41,7 +41,7 @@ export default function BasicInfoCard({ basicInfo }) {
               {" "}
               <Image src="/university-logo.svg" fill alt="email-logo" />
             </div>{" "}
-            {basicInfo.university ? basicInfo.university : "--"}
+            {basicInfo?.university ? basicInfo.university : "--"}
           </div>
         </div>
         <div>

@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import getStudentProfileInfo from "@/lib/utils/getStudentProfileInfo";
 import BasicInfoCard from "./components/BasicInfoCard";
 import BasicInfoSection from "./components/BasicInfoSection";
