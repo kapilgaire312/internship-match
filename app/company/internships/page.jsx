@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import getReleasedInternships from "@/lib/utils/company/getReleasedInternships";
 import Link from "next/link";
 import ReleasedIternshipCard from "./ReleasedInternhsipCard";
