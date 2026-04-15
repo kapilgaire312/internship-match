@@ -8,9 +8,6 @@ export default async function InternshipApplicants({ params, searchParams }) {
   const { sortBy, status } = await searchParams;
   console.log(sortBy, status);
   const applicants = await getApplicants(internshipId, sortBy, status);
-
-  console.log(JSON.stringify(applicants), applicants);
-  console.log(internshipId);
   return (
     <div className="felx justify-center px-10 py-4">
       <div className="flex flex-col gap-5">

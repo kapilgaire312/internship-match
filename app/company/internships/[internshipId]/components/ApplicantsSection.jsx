@@ -1,13 +1,22 @@
 import { getMatchColour } from "@/lib/utils/getInternshipsWithMatchScore";
 import { mapSkills } from "@/utils/mapSkills";
 import Image from "next/image";
+import ResponseSection from "./ResponseSection";
 
 export default function ApplicationSection({ applicantInfo }) {
   const matchColour = getMatchColour(applicantInfo.match_score);
+  const applicantInfoForResponse = {
+    status: applicantInfo.status,
+    _id: applicantInfo._id,
+    name: applicantInfo.name,
+  };
   return (
     <div>
+      {" "}
       <div className="flex gap-5 items-start bg-white rounded py-4 px-6 justify-between w-[65vw]">
+        {" "}
         <div className="flex gap-5 items-start">
+          {" "}
           <div>
             <div className="relative w-18 h-18 rounded-full overflow-hidden">
               <Image src={applicantInfo.profilePicUrl} fill alt="profile_pic" />
@@ -17,7 +26,8 @@ export default function ApplicationSection({ applicantInfo }) {
             <div className="flex gap-4 items-center">
               <div className="text-xl font-medium">{applicantInfo.name}</div>
               <div
-                className={`bg-[${matchColour}] px-2 rounded-xl py-1 font-medium`}
+                className={` px-2 rounded-xl py-1 font-medium`}
+                style={{ backgroundColor: matchColour }}
               >
                 {applicantInfo.match_score}% Match
               </div>
@@ -43,15 +53,11 @@ export default function ApplicationSection({ applicantInfo }) {
               </div>
             </div>
             <div className="flex gap-2 flex-wrap">
-              {applicantInfo.skills.map(mapSkills) || "--"}
+              {applicantInfo.skills?.map(mapSkills) || "--"}
             </div>
           </div>
         </div>
-        <div className="flex gap-1">
-          <div>Reject</div>
-          <div>Accept</div>
-          <div>??</div>
-        </div>
+        <ResponseSection applicantInfo={applicantInfoForResponse} />
       </div>
     </div>
   );
