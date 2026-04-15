@@ -25,7 +25,7 @@ export default async function InternshipApplicants({ params, searchParams }) {
               return <ApplicationSection key={index} applicantInfo={item} />;
             })}{" "}
           </div>
-          <FilterSection />
+          <FilterSection search={{ sortBy, status }} />
         </div>
       </div>
     </div>
