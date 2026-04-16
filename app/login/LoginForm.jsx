@@ -1,6 +1,7 @@
 "use client";
 
 import handleLoginAction from "@/actions/handleLoginAction";
+import LoadingButton from "@/components/ui/LoadingButton";
 import { useState } from "react";
 import { useFormStatus } from "react-dom";
 
@@ -61,10 +62,15 @@ export default function LoginForm() {
         </div>{" "}
         <button
           type="submit"
-          className="border-2 py-1 px-2.5 rounded-xl bg-blue-600 text-white w-[90%]"
+          className="border-2 py-1 px-2.5 rounded-xl bg-blue-600 text-white w-[90%] cursor-pointer"
           disabled={pending}
         >
-          Login
+          Login{" "}
+          <LoadingButton
+            initialValue={"Login"}
+            pendingValue={"Logging in"}
+            isPending={pending}
+          />
         </button>
       </div>
     </form>

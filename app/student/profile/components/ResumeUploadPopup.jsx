@@ -151,7 +151,7 @@ export default function ResumeUploadPopup({ open, setOpen }) {
                     <div>Drop it here</div>
                   ) : (
                     <div className="text-center">
-                      <p>Drag and drop your resume or click here</p>{" "}
+                      <p>Drag and drop your profile picture or click here</p>{" "}
                       <p className="text-gray-500">(pdf file, 500KB max) </p>
                     </div>
                   )}
