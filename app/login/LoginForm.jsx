@@ -65,7 +65,6 @@ export default function LoginForm() {
           className="border-2 py-1 px-2.5 rounded-xl bg-blue-600 text-white w-[90%] cursor-pointer"
           disabled={pending}
         >
-          Login{" "}
           <LoadingButton
             initialValue={"Login"}
             pendingValue={"Logging in"}
