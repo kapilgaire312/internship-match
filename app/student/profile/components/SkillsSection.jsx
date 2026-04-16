@@ -70,7 +70,7 @@ export default function SkillsSection({ currentSkills }) {
             Click edit to add new skill.
           </div>
         ) : (
-          <div className="text-gray-600">Current Sectors</div>
+          <div className="text-gray-600">Current Skills</div>
         )}
         <div className="flex gap-2 flex-wrap">
           {values?.map((item, index) => {

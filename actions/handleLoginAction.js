@@ -8,7 +8,7 @@ import CustomError from "@/utils/CustomError";
 import { redirect } from "next/navigation";
 import { ZodError } from "zod";
 
-export default async function handleLoginAction(formData) {
+export default async function handleLoginAction(prevState, formData) {
   try {
     const data = Object.fromEntries(formData.entries()); // converting form data into js object, which zod accepts.
 

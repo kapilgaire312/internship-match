@@ -23,6 +23,25 @@ export default async function handleApplyNowAction(internshipId) {
     if (!internship) {
       return { error: "Internship not found" };
     }
+
+    const student = await StudentProfile.findOne({ student_id: studentId });
+
+    if (!student) {
+      return { error: "Login first to apply for internships." };
+    }
+
+    //check if students profile is complete
+    if (
+      student?.sector ||
+      student?.skills ||
+      student?.sector?.length === 0 ||
+      student?.skills?.length === 0 ||
+      student?.parsed_skills?.length === 0
+    ) {
+      return {
+        error: "Complete your profile first to apply.",
+      };
+    }
     const alreadyApplied = await Application.exists({
       student_id: studentId,
       internship_id: internshipId,
@@ -41,15 +60,11 @@ export default async function handleApplyNowAction(internshipId) {
       return { error: "Application is closed." };
     }
 
-    const student = await StudentProfile.findOne({ student_id: studentId });
     console.log(internshipId);
     const { matchScore, matchedSkills } = calculateMatchScore(
       internship.parsed_required_skills,
       student.parsed_skills,
     );
-
-    console.log("matchedscoreis", matchScore);
-    console.log("studentskillsis", student.parsed_skills);
 
     const newApplication = new Application({
       student_id: studentId,
