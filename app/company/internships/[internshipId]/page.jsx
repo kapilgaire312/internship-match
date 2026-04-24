@@ -34,9 +34,19 @@ export default async function InternshipApplicants({ params, searchParams }) {
         <div className="flex justify-end">Retrive shortlisted email</div>
         <div className="flex gap-6">
           <div className="flex flex-col gap-6">
-            {applicantsList.map((item, index) => {
-              return <ApplicationSection key={index} applicantInfo={item} />;
-            })}{" "}
+            {applicantsList?.length !== 0 ? (
+              applicantsList.map((item, index) => {
+                return <ApplicationSection key={index} applicantInfo={item} />;
+              })
+            ) : (
+              <div className=" flex bg-white rounded py-4 px-6 justify-center items-center h-[30vh] w-[65vw]">
+                <p className="text-gray-400 font-medium text-xl">
+                  {status
+                    ? "No Applicants matching the filters found."
+                    : "No applicants for this internship."}
+                </p>
+              </div>
+            )}
           </div>
           <div className="w-full flex flex-col gap-4">
             <FilterSection search={{ sortBy, status }} />
