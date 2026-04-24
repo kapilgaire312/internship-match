@@ -71,7 +71,12 @@ export default async function handleResumeSubmitAction(prevState, formData) {
 
     if (student.skills?.length !== 0) {
       //call gemini to parse the resume in background, if skills is there.
-      handleStudentSkillsParse(student._id, buffer, student.skills);
+      const res = await handleStudentSkillsParse(
+        student._id,
+        buffer,
+        student.skills,
+      );
+      console.log(res);
     }
 
     return { success: true };

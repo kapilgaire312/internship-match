@@ -32,8 +32,8 @@ export default async function handleApplyNowAction(internshipId) {
 
     //check if students profile is complete
     if (
-      student?.sector ||
-      student?.skills ||
+      !student?.sector ||
+      !student?.skills ||
       student?.sector?.length === 0 ||
       student?.skills?.length === 0 ||
       student?.parsed_skills?.length === 0
