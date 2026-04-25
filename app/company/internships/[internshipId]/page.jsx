@@ -3,6 +3,7 @@ import ApplicationSection from "./components/ApplicantsSection";
 import FilterSection from "./components/FilterSection";
 import getApplicants from "@/lib/utils/company/getApplicants";
 import CloseInternshipSection from "./components/CloseInternshipSection";
+import RetriveEmailButton from "./components/RetriveEmailButton";
 
 export default async function InternshipApplicants({ params, searchParams }) {
   const { internshipId } = await params;
@@ -31,7 +32,13 @@ export default async function InternshipApplicants({ params, searchParams }) {
             </span>
           )}
         </div>
-        <div className="flex justify-end">Retrive shortlisted email</div>
+        <div className="flex justify-end">
+          {" "}
+          <RetriveEmailButton
+            applicantsList={applicantsList}
+            internshipTitle={internshipTitle}
+          />{" "}
+        </div>
         <div className="flex gap-6">
           <div className="flex flex-col gap-6">
             {applicantsList?.length !== 0 ? (
@@ -41,7 +48,7 @@ export default async function InternshipApplicants({ params, searchParams }) {
             ) : (
               <div className=" flex bg-white rounded py-4 px-6 justify-center items-center h-[30vh] w-[65vw]">
                 <p className="text-gray-400 font-medium text-xl">
-                  {status
+                  {!status
                     ? "No Applicants matching the filters found."
                     : "No applicants for this internship."}
                 </p>
