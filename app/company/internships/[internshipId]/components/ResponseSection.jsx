@@ -6,7 +6,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ResponseSection({ applicantInfo }) {
+export default function ResponseSection({ applicantInfo, noRedirect }) {
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
   async function handleResponse(status) {
@@ -59,17 +59,18 @@ export default function ResponseSection({ applicantInfo }) {
           )}
         </div>
       )}
-      <div className="border  flex justify-center items-center py-1 px-3 cursor-pointer">
+      {!noRedirect && (
         <Link
           href={`/company/applicant/${applicantInfo._id}`}
           target="_blank"
           rel="noopener noreferrer"
+          className="border  flex justify-center items-center py-1 px-3 cursor-pointer"
         >
           <div className="relative h-4 w-4">
             <Image src={"/open-new-icon.svg"} fill alt="open-logo" />
           </div>
         </Link>
-      </div>
+      )}
     </div>
   );
 }

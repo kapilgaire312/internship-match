@@ -5,7 +5,7 @@ export default function CompanyNavbar() {
     <nav className="sticky top-0 z-10 bg-[#f5f6fc] transition-all-300">
       {" "}
       <div className="flex justify-between py-5 px-8 select-none sticky items-center">
-        <Link href="/student/home" className="contents">
+        <Link href="/company/dashboard" className="contents">
           {" "}
           <div className="relative w-54 h-13">
             <Image

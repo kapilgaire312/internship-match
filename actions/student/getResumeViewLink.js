@@ -3,11 +3,8 @@
 import { auth } from "@/lib/auth";
 import dbConnect from "@/lib/dbConnect";
 import StudentProfile from "@/lib/models/studentProfile-model";
-import { s3Client } from "@/lib/r2";
+import getResumeUrl from "@/lib/utils/getResumeUrl";
 import CustomError from "@/utils/CustomError";
-import { GetObjectCommand } from "@aws-sdk/client-s3";
-import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-
 export default async function getResumeViewLink() {
   try {
     const session = await auth();
@@ -25,16 +22,13 @@ export default async function getResumeViewLink() {
 
     const fileKey = student.resume_details.file_key;
 
-    const command = new GetObjectCommand({
-      Bucket: process.env.R2_BUCKET_NAME,
-      Key: fileKey,
-    });
+    console.log("Key is", fileKey);
+    const res = await getResumeUrl(fileKey);
 
-    const signedUrl = await getSignedUrl(s3Client, command, {
-      expiresIn: 60 * 5,
-    });
-    console.log(signedUrl);
-    return { success: true, signedUrl };
+    if (res?.error) throw new Error(res.message);
+
+    console.log(res);
+    return { success: true, signedUrl: res };
   } catch (error) {
     if (error instanceof CustomError) {
       return { error: "Resume not found!" };
