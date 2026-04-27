@@ -7,7 +7,7 @@ import { getInternshipsWithMatchScore } from "@/lib/utils/getInternshipsWithMatc
 export default async function MatchesPage({ searchParams }) {
   const params = await searchParams;
   const search = params.search;
-  const filter = params.filter;
+  const filter = params.filter || "matchScore";
   let error = false;
 
   const internships = await getInternshipsWithMatchScore(search, filter);

@@ -11,8 +11,6 @@ export default async function ApplicantPage({ params }) {
 
   if (response?.success) applicantInfo = response.applicantInfo;
 
-  console.log(applicantInfo);
-
   if (!applicantInfo)
     return <div>{response?.error || "Failed getting applicants info."}</div>;
   return (

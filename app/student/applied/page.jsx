@@ -3,12 +3,13 @@ import SearchBar from "@/components/SearchBar";
 import InternshipCardApplied from "./internshipCardApplied";
 import getAppliedInternships from "@/lib/utils/getAppliedInternships";
 
-export default async function AppliedPage() {
-  const appliedInternhsips = await getAppliedInternships();
+export default async function AppliedPage({ searchParams }) {
+  const { search } = await searchParams;
+  const appliedInternhsips = await getAppliedInternships(search);
 
   let error = false;
 
-  if (appliedInternhsips.error) error = true;
+  if (!appliedInternhsips || appliedInternhsips.error) error = true;
 
   return (
     <div>
