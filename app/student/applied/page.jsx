@@ -2,13 +2,13 @@ export const dynamic = "force-dynamic";
 import SearchBar from "@/components/SearchBar";
 import InternshipCardApplied from "./internshipCardApplied";
 import getAppliedInternships from "@/lib/utils/getAppliedInternships";
+import BackButton from "@/components/home/BackButton";
 
 export default async function AppliedPage({ searchParams }) {
   const { search } = await searchParams;
   const appliedInternhsips = await getAppliedInternships(search);
 
   let error = false;
-
   if (!appliedInternhsips || appliedInternhsips.error) error = true;
 
   return (
@@ -38,14 +38,23 @@ export default async function AppliedPage({ searchParams }) {
         </div>
         <div className="flex  flex-col justify-center mt-8  gap-10">
           {" "}
-          {error ||
-            (appliedInternhsips.length === 0 && (
-              <div className="flex justify-center items-center w-[65vw] h-[40vh] bg-white rounded-xl text-xl font-medium text-gray-500">
-                {error
-                  ? appliedInternhsips.error
-                  : "You have'nt applied to any internships yet."}
+          <div className="flex justify-start w-full">
+            {search && (
+              <div className="flex gap-3">
+                <BackButton />
+                <div className="text-xl font-medium">
+                  Showing results for &quot;{search}&quot;
+                </div>
               </div>
-            ))}
+            )}
+          </div>{" "}
+          {(error || appliedInternhsips.length === 0) && (
+            <div className="flex justify-center items-center w-[65vw] h-[40vh] bg-white rounded-xl text-xl font-medium text-gray-500">
+              {error
+                ? appliedInternhsips.error
+                : "You have'nt applied to any internships yet."}
+            </div>
+          )}
           {!error &&
             appliedInternhsips?.map((internshipData, index) => {
               return (
