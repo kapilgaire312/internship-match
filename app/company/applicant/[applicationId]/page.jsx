@@ -17,7 +17,7 @@ export default async function ApplicantPage({ params }) {
     <div className="flex items-center flex-col gap-5 px-20">
       <InfoSection applicantInfo={applicantInfo} />
       <SkillsSection applicantInfo={applicantInfo} />
-      <ResumeSection />
+      <ResumeSection applicantInfo={applicantInfo} />
     </div>
   );
 }

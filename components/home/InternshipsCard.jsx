@@ -54,10 +54,10 @@ export default function InternshipsCard({ internshipInfo }) {
               {formatSalary(internshipInfo.salary)} / month
             </div>
             <div
-              className={`flex gap-1 ${timeRemaining === "Closed" && "bg-gray-300 px-1.5 rounded-xl"}`}
+              className={`flex items-center h-fit gap-1 ${timeRemaining === "Closed" && "bg-gray-300 px-1.5 rounded-xl"}`}
             >
               {" "}
-              <div className="relative h-4 w-4 top-1">
+              <div className="relative h-4 w-4 ">
                 {" "}
                 <Image src="/time-period.svg" fill alt="company" />
               </div>

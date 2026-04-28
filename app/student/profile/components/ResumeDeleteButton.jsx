@@ -54,7 +54,12 @@ export default function ResumeDeleteButton() {
         </DialogTrigger>
         <DialogContent className="sm:max-w-md bg-[#f5f6fc]">
           <DialogHeader>
-            <DialogTitle className="">Delete your uploaded resume?</DialogTitle>
+            <DialogTitle className="">
+              Delete your uploaded resume?{" "}
+              <p className="block text-gray-400 font-normal mt-2">
+                Companies you have applied to won&apos;t see your resume.
+              </p>
+            </DialogTitle>
           </DialogHeader>
           <div className="flex items-center justify-around">
             <button
