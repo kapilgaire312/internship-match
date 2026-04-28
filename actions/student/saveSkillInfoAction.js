@@ -13,12 +13,13 @@ export default async function saveSkillInfoAction(values) {
     if (!student) return { error: "user not logged in" };
     student.skills = values;
 
-    handleStudentSkillsParse(
-      student._id,
-      null,
-      values,
-      student.resume_details.file_key,
-    );
+    if (student.resume_details)
+      handleStudentSkillsParse(
+        student._id,
+        null,
+        values,
+        student.resume_details.file_key,
+      );
 
     await student.save();
     revalidatePath("/student/profile");

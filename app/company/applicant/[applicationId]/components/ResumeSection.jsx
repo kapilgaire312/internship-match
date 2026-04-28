@@ -5,7 +5,6 @@ export default function ResumeSection({ applicantInfo }) {
   const resumeUrl = applicantInfo.resumeUrl;
   const fileName = applicantInfo.fileName;
   const resumeUrlDownload = applicantInfo.resumeUrlDownload;
-  console.log("resumeurlis", resumeUrlDownload);
 
   return (
     <div className="w-full">

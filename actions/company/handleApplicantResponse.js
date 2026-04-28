@@ -15,6 +15,7 @@ export default async function handleApplicantResponse(applicationId, status) {
       return { error: true, message: "Not logged in as company!" };
     const companyId = session.user.userId;
 
+    console.log("applicationidis", applicationId);
     const application = await Application.findById(applicationId);
     if (!application)
       return { error: true, message: "Failed to update application." };

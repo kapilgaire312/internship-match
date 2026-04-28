@@ -1,4 +1,3 @@
-import { mapSkills } from "@/utils/mapSkills";
 import Image from "next/image";
 import SkillsBlock from "./SkillsBlock";
 
