@@ -7,10 +7,13 @@ export default function BasicInfoEditSection({
   editingInfo,
   isPending,
   handleCancel,
+  title,
 }) {
   return (
     <div className="flex justify-between ">
-      <div className=" font-medium text-2xl">Basic Information</div>
+      <div className=" font-medium text-2xl">
+        {title ? title : "Basic Information"}
+      </div>
       {!editingInfo.editing ? (
         <button
           type="button"

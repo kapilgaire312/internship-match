@@ -19,7 +19,6 @@ export default async function saveBasicInfoAction(prevState, formData) {
     if (!student) {
       return { error: "student not logged in." };
     }
-    console.log("formdatais", formData);
     const rawData = {
       name: formData.get("name").trim(),
       address: formData.get("address").trim(),
@@ -32,7 +31,6 @@ export default async function saveBasicInfoAction(prevState, formData) {
       return { error: "Enter all values." };
     }
     const data = schema.parse(rawData);
-
     student.name = data.name;
     student.address = data.address;
     student.university = data.university;
