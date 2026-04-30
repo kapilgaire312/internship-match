@@ -10,15 +10,15 @@ export default function BasicInfoEditSection({
   title,
 }) {
   return (
-    <div className="flex justify-between ">
-      <div className=" font-medium text-2xl">
+    <div className="flex items-center justify-between ">
+      <div className={` font-medium ${title ? "text-xl" : "text-2xl"}`}>
         {title ? title : "Basic Information"}
       </div>
       {!editingInfo.editing ? (
         <button
           type="button"
           onClick={() => editingInfo.setEditing(true)}
-          className="shadow-xs h-10 bg-[#f5f6fc] rounded px-2 py-1 width: , text flex items-center gap-1"
+          className="shadow-xs h-10 bg-[#f5f6fc] rounded px-2 py-1  flex items-center gap-1 cursor-pointer"
         >
           <div className="relative w-5 h-4">
             {" "}
@@ -32,14 +32,14 @@ export default function BasicInfoEditSection({
             type="button"
             onClick={handleCancel}
             disabled={isPending}
-            className="shadow-xs h-10 bg-[#f5f6fc] rounded px-2 py-1 text disabled:opacity-70"
+            className="shadow-xs h-10 bg-[#f5f6fc] rounded px-2 py-1 disabled:opacity-70  cursor-pointer"
           >
             Cancel
           </button>
           <button
             type="submit"
             disabled={isPending}
-            className="bg-[#2762ea] h-10 text-white px-2 py-1 flext justify-center min-w-30 rounded flex items-center gap-2 disabled:opacity-70"
+            className="bg-[#2762ea] h-10 text-white px-2 py-1 flext justify-center min-w-30 rounded flex items-center gap-2 disabled:opacity-70  cursor-pointer"
           >
             <LoadingButton
               initialValue="Save"

@@ -1,6 +1,8 @@
 import getProfileInfo from "@/lib/utils/company/getProfileInfo";
 import BasicInfoSection from "./components/BasicInfoSection";
 import LocationAndContactSection from "./components/LocationAndContactSection";
+import LogoSection from "./components/LogoSection";
+import SocialLinksSeciton from "./components/SocialLinksSection";
 
 export default async function CompanyProfile() {
   const companyInfo = await getProfileInfo();
@@ -16,13 +18,12 @@ export default async function CompanyProfile() {
     companyInfo;
 
   return (
-    <div className="px-20 py-4 ">
-      <div className="grid grid-cols-[70vw_1fr] gap-6">
+    <div className="px-10 py-4 ">
+      <div className="grid grid-cols-[65vw_1fr] gap-6">
         <BasicInfoSection basicInfoData={basicInfoData} />
-        <div>ho</div>
+        <LogoSection />
         <LocationAndContactSection locationContactData={locationContactData} />
-
-        <div>is</div>
+        <SocialLinksSeciton socialLinksData={socialLinksData} />
       </div>
     </div>
   );

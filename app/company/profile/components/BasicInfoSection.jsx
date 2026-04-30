@@ -2,7 +2,6 @@
 import saveBasicInfoAction from "@/actions/company/saveBasicInfoAction";
 import BasicInfoEditSection from "@/app/student/profile/components/BasicInfoEditSection";
 import { useActionState, useEffect, useState } from "react";
-import { setErrorMap } from "zod/v3";
 
 export default function BasicInfoSection({ basicInfoData }) {
   const [editing, setEditing] = useState(false);
@@ -59,7 +58,7 @@ export default function BasicInfoSection({ basicInfoData }) {
   }, [state]);
 
   return (
-    <div className="bg-white p-6 rounded flex flex-col gap-2">
+    <div className="bg-white p-6 rounded flex flex-col gap-3">
       <form className="contents" action={formAction}>
         {" "}
         <div>
@@ -67,6 +66,7 @@ export default function BasicInfoSection({ basicInfoData }) {
             editingInfo={editingInfo}
             handleCancel={handleCancel}
             isPending={isPending}
+            title={"Basic Info"}
           />
         </div>
         <div className="flex flex-col gap-1">
@@ -77,7 +77,7 @@ export default function BasicInfoSection({ basicInfoData }) {
             defaultValue={basicInfoData.email}
           />
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-4">
           {fields.map((item, index) => {
             return (
               <div key={index} className="flex flex-col gap-1">
@@ -130,13 +130,13 @@ export default function BasicInfoSection({ basicInfoData }) {
             )}
           </div>
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 mt-2">
           <label htmlFor="about_company" className="font-medium">
             About Company{editing && <span className="text-red-600">*</span>}
           </label>
           <textarea
             disabled={!editing}
-            className={`border w-full rounded py-1 px-2 h-[20vh] ${!editing && "bg-[#f5f6fc] "} ${errorsMap.has("aboutCompany") && "border-red-400 "}`}
+            className={`border w-full rounded py-1 px-2 h-[15vh] ${!editing && "bg-[#f5f6fc] "} ${errorsMap.has("aboutCompany") && "border-red-400 "}`}
             placeholder={
               editing ? "Describe about the company (150 chars min)" : "--"
             }

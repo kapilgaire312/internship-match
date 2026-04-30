@@ -83,7 +83,7 @@ export default function LocationAndContactSection({ locationContactData }) {
           handleCancel={handleCancel}
           title="Location & Contact"
         />
-        <div className="flex flex-wrap gap-4 justify-between  ">
+        <div className="grid grid-cols-2 gap-y-4 gap-x-8 justify-between  ">
           {fields.map((item, index) => {
             return (
               <div key={index} className="flex flex-col gap-1 ">
@@ -94,7 +94,7 @@ export default function LocationAndContactSection({ locationContactData }) {
                 <input
                   id={item}
                   name={item}
-                  className={`border ${editing ? "bg-white" : "bg-[#f5f6fc]"}  rounded py-1 px-2  w-[28vw] ${errorsMap.has(item) && "border-red-400"}`}
+                  className={`border ${editing ? "bg-white" : "bg-[#f5f6fc]"}  rounded py-1 px-2  w-full ${errorsMap.has(item) && "border-red-400"}`}
                   disabled={item === "email" ? true : !editing || isPending}
                   value={values[item]}
                   onChange={(e) => {
