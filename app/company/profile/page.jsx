@@ -17,11 +17,13 @@ export default async function CompanyProfile() {
   const { basicInfoData, locationContactData, socialLinksData, logoUrl } =
     companyInfo;
 
+  console.log(logoUrl);
+
   return (
     <div className="px-10 py-4 ">
       <div className="grid grid-cols-[65vw_1fr] gap-6">
         <BasicInfoSection basicInfoData={basicInfoData} />
-        <LogoSection />
+        <LogoSection logoUrl={logoUrl} />
         <LocationAndContactSection locationContactData={locationContactData} />
         <SocialLinksSeciton socialLinksData={socialLinksData} />
       </div>

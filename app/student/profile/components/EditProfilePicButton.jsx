@@ -1,4 +1,5 @@
 "use client";
+import handleUploadLogoAction from "@/actions/company/handleUploadLogoAction";
 import handleDeleteProfilePicAction from "@/actions/student/handleDeleteProfilePicAction";
 import handleUploadProfilePicAction from "@/actions/student/handleUploadProfilePicAction";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -6,7 +7,7 @@ import LoadingButton from "@/components/ui/LoadingButton";
 import Image from "next/image";
 import { useActionState, useEffect, useRef, useState } from "react";
 
-export default function EditProfilePicButton({ profilePicSrc }) {
+export default function EditProfilePicButton({ profilePicSrc, companyLogo }) {
   const [popup, setPopup] = useState(false);
   const [uploadArea, setuploadArea] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
@@ -16,13 +17,15 @@ export default function EditProfilePicButton({ profilePicSrc }) {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const [uploadState, formAction, isPending] = useActionState(
-    handleUploadProfilePicAction,
+    companyLogo ? handleUploadLogoAction : handleUploadProfilePicAction,
     null,
   );
 
   const [previewUrl, setPreviewUrl] = useState(null);
 
   function checkDefaultUrl() {
+    if (companyLogo) return true;
+
     const imageName = profilePicSrc.split("/").pop();
     if (imageName === "profile-pics_default_profile_pic.jpg") return true;
     return false;
@@ -108,15 +111,21 @@ export default function EditProfilePicButton({ profilePicSrc }) {
 
   return (
     <>
-      <div className="absolute z-10 right-5 top-2 bg-white  rounded-full p-1 flex">
+      <div
+        className={`${!companyLogo && "absolute z-10  right-5 top-2 "} bg-white  rounded-full p-1 flex`}
+      >
         <button
-          className="relative w-5 h-5 flex cursor-pointer hover:opacity-70 active:opacity-50 "
+          className={`${companyLogo && "border font-medium px-2 py-1 rounded"}  flex w-full justify-center items-center gap-2 cursor-pointer hover:opacity-70 active:opacity-50 `}
           onClick={() => {
             setPopup(true);
           }}
         >
           {" "}
-          <Image src="/edit-logo.svg" alt="edit-icon" fill />{" "}
+          <div className="relative w-5 h-5 flex cursor-pointer hover:opacity-70 active:opacity-50 ">
+            {" "}
+            <Image src="/edit-logo.svg" alt="edit-icon" fill />{" "}
+          </div>
+          {companyLogo && "Edit Logo"}
         </button>
       </div>{" "}
       <Dialog open={popup} onOpenChange={setPopup}>
@@ -150,7 +159,7 @@ export default function EditProfilePicButton({ profilePicSrc }) {
                     <div>
                       {" "}
                       <div className="flex justify-center">
-                        <div className="relative w-[20vw] h-[20vw] rounded-full overflow-hidden">
+                        <div className="relative w-[20vw] h-[20vw] rounded-full border overflow-hidden">
                           <Image src={previewUrl} alt="profile_pic" fill />{" "}
                         </div>{" "}
                       </div>{" "}
@@ -192,7 +201,6 @@ export default function EditProfilePicButton({ profilePicSrc }) {
                     className={` px-2 py-1 rounded select-none ${image ? "bg-[#2762ea]  hover:opacity-80 active:opacity-60 cursor-pointer text-white  " : "cursor-not-allowed bg-gray-100 "} `}
                     type="submit"
                     disabled={isPending || !image}
-                    onClick={() => console.log("clicked")}
                   >
                     <LoadingButton
                       initialValue="Upload"
@@ -209,7 +217,7 @@ export default function EditProfilePicButton({ profilePicSrc }) {
                 Edit your profile picture.
               </div>
               <div className={`flex justify-center`}>
-                <div className="relative w-[20vw] h-[20vw] rounded-full overflow-hidden">
+                <div className="relative w-[20vw] h-[20vw] border rounded-full overflow-hidden">
                   <Image src={profilePicSrc} alt="profile_pic" fill />{" "}
                 </div>{" "}
               </div>{" "}

@@ -2,17 +2,20 @@
 
 import { auth } from "@/lib/auth";
 import dbConnect from "@/lib/dbConnect";
-import StudentProfile from "@/lib/models/studentProfile-model";
-import { s3Client } from "@/lib/r2";
-import { DeleteObjectCommand, PutObjectCommand } from "@aws-sdk/client-s3";
+import CompanyProfile from "@/lib/models/companyProfile-model";
+import {
+  DeleteObjectCommand,
+  PutObjectCommand,
+  S3Client,
+} from "@aws-sdk/client-s3";
 import { revalidatePath } from "next/cache";
 import sharp from "sharp";
 
-export default async function handleUploadProfilePicAction(prevVal, formData) {
+export default async function handleUploadLogoAction(prevVal, formData) {
   try {
     const session = await auth();
-    if (session?.user.role !== "student") {
-      return { error: "Not logged in as student!" };
+    if (session?.user.role !== "company") {
+      return { error: "Not logged in as company!" };
     }
 
     const image = formData.get("file");
@@ -30,7 +33,7 @@ export default async function handleUploadProfilePicAction(prevVal, formData) {
     const imageBuffer = Buffer.from(bytes);
 
     await dbConnect();
-    const studentId = session.user.userId;
+    const companyId = session.user.userId;
 
     //resize and compress the image
 
@@ -41,39 +44,48 @@ export default async function handleUploadProfilePicAction(prevVal, formData) {
 
     //save the image to cloudflare
 
-    const uniqueKey = `profile-pics/${Date.now()}-${image.name}`;
+    const uniqueKey = `company-logo/${Date.now()}-${image.name}`;
 
     const command = new PutObjectCommand({
-      Bucket: process.env.R2_BUCKET_NAME,
+      Bucket: process.env.R2_BUCKET_NAME_COMPANY_LOGO,
       Key: uniqueKey,
       Body: compressedImageBuffer,
       ContentType: image.type,
+    });
+
+    const s3Client = new S3Client({
+      region: "auto",
+      endpoint: process.env.R2_ENDPOINT_COMPANY_LOGO,
+      credentials: {
+        accessKeyId: process.env.R2_ACCESS_KEY_ID_COMPANY_LOGO,
+        secretAccessKey: process.env.R2_SECRET_ACCESS_KEY_COMPANY_LOGO,
+      },
     });
 
     await s3Client.send(command);
 
     //save the image url to db
     //
-    const student = await StudentProfile.findOne({ student_id: studentId });
+    const company = await CompanyProfile.findOne({ company_id: companyId });
 
-    if (!student) {
-      return { error: "Student not found!" };
+    if (!company) {
+      return { error: "Company not found!" };
     }
 
-    const previousProfilePicKey = student.profile_pic;
+    const previousLogoKey = company.logo;
 
-    student.profile_pic = uniqueKey;
-    student.save();
+    company.logo = uniqueKey;
+    company.save();
+    revalidatePath("/company/profile");
 
-    revalidatePath("/student/profile");
     //delete previous logo
     const deleteCommand = new DeleteObjectCommand({
-      Bucket: process.env.R2_BUCKET_NAME,
-      Key: previousProfilePicKey,
+      Bucket: process.env.R2_BUCKET_NAME_COMPANY_LOGO,
+      Key: previousLogoKey,
     });
 
     try {
-      //donot disturb the upload process if deletion of previous profile pic fails.
+      //donot disturb the upload process if deletion of previous logo fails.
       await s3Client.send(deleteCommand);
     } catch (error) {
       console.log(error);
@@ -82,6 +94,6 @@ export default async function handleUploadProfilePicAction(prevVal, formData) {
     return { success: true };
   } catch (error) {
     console.log(error);
-    return { error: "Failed uploading the profile picture." };
+    return { error: "Failed uploading the logo." };
   }
 }
