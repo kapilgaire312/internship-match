@@ -12,7 +12,12 @@ export default function BasicInfoCard({ basicInfo }) {
             {" "}
             <div className="relative w-[8rem] h-[8rem] rounded-full overflow-hidden">
               <EditProfilePicButton profilePicSrc={basicInfo?.profile_pic} />
-              <Image src={basicInfo?.profile_pic} alt="profile_pic" fill />{" "}
+              <Image
+                src={basicInfo?.profile_pic}
+                alt="profile_pic"
+                fill
+                className="object-cover"
+              />{" "}
             </div>{" "}
           </div>
           <div className="font-semibold text-xl"> {basicInfo?.name}</div>

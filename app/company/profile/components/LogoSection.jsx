@@ -16,7 +16,12 @@ export default function LogoSection({ logoUrl }) {
         <div className="flex justify-center items-center">
           <div className="flex flex-col gap-2">
             <div className="relative w-50 h-50 rounded-full overflow-hidden border-2 border-gray-300 ">
-              <Image src={logoUrl} alt="company_logo" fill />{" "}
+              <Image
+                src={logoUrl}
+                alt="company_logo"
+                fill
+                className="object-cover"
+              />{" "}
             </div>
             <div>
               <EditProfilePicButton

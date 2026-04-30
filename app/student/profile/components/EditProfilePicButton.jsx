@@ -160,7 +160,12 @@ export default function EditProfilePicButton({ profilePicSrc, companyLogo }) {
                       {" "}
                       <div className="flex justify-center">
                         <div className="relative w-[20vw] h-[20vw] rounded-full border overflow-hidden">
-                          <Image src={previewUrl} alt="profile_pic" fill />{" "}
+                          <Image
+                            src={previewUrl}
+                            alt="profile_pic"
+                            fill
+                            className="object-cover"
+                          />{" "}
                         </div>{" "}
                       </div>{" "}
                     </div>
@@ -218,7 +223,12 @@ export default function EditProfilePicButton({ profilePicSrc, companyLogo }) {
               </div>
               <div className={`flex justify-center`}>
                 <div className="relative w-[20vw] h-[20vw] border rounded-full overflow-hidden">
-                  <Image src={profilePicSrc} alt="profile_pic" fill />{" "}
+                  <Image
+                    src={profilePicSrc}
+                    alt="profile_pic"
+                    fill
+                    className="object-cover"
+                  />{" "}
                 </div>{" "}
               </div>{" "}
               <div

@@ -66,7 +66,7 @@ export default async function handleUploadProfilePicAction(prevVal, formData) {
     student.save();
 
     revalidatePath("/student/profile");
-    //delete previous logo
+    //delete previous pic
     const deleteCommand = new DeleteObjectCommand({
       Bucket: process.env.R2_BUCKET_NAME,
       Key: previousProfilePicKey,
@@ -74,7 +74,8 @@ export default async function handleUploadProfilePicAction(prevVal, formData) {
 
     try {
       //donot disturb the upload process if deletion of previous profile pic fails.
-      await s3Client.send(deleteCommand);
+      if (previousProfilePicKey && previousProfilePicKey.length !== 0)
+        await s3Client.send(deleteCommand);
     } catch (error) {
       console.log(error);
     }

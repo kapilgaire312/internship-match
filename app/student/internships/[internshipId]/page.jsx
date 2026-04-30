@@ -23,7 +23,6 @@ export default async function InternshipPage({ params }) {
 
   console.log("internwalaa", internshipData);
 
-  internshipData.company_logo = "/demoImage.webp";
   return (
     <div className="px-10 flex flex-col gap-5">
       <Link href={`/student/${previousPage}`}>

@@ -5,7 +5,7 @@ import dbConnect from "@/lib/dbConnect";
 import StudentProfile from "@/lib/models/studentProfile-model";
 import { s3Client } from "@/lib/r2";
 import handleStudentSkillsParse from "@/lib/utils/handleStudentSkillsParse";
-import { PutObjectCommand } from "@aws-sdk/client-s3";
+import { DeleteObjectCommand, PutObjectCommand } from "@aws-sdk/client-s3";
 import { revalidatePath } from "next/cache";
 
 export default async function handleResumeSubmitAction(prevState, formData) {
@@ -59,15 +59,40 @@ export default async function handleResumeSubmitAction(prevState, formData) {
         },
       },
     };
+    const resume_details = {
+      file_name: file.name,
+      file_size: file.size,
+      file_key: uniqueName,
+      parse_status: "pending",
+    };
 
-    const student = await StudentProfile.findOneAndUpdate(
-      {
-        student_id: session.user.userId,
-      },
-      update,
-    );
+    const student = await StudentProfile.findOne({
+      student_id: session.user.userId,
+    });
+
+    if (!student) {
+      return { error: "Student not found!" };
+    }
+    const previousResumeKey = student.resume_details?.file_key;
+
+    student.resume_details = resume_details;
+    student.save();
 
     revalidatePath("/student/profile");
+    //delete previous pic
+    const deleteCommand = new DeleteObjectCommand({
+      Bucket: process.env.R2_BUCKET_NAME,
+      Key: previousResumeKey,
+    });
+
+    try {
+      if (previousResumeKey && previousResumeKey.length !== 0) {
+        console.log("deleting previous resume");
+        await s3Client.send(deleteCommand);
+      }
+    } catch (error) {
+      console.log(error);
+    }
 
     if (student.skills?.length !== 0) {
       //call gemini to parse the resume in background, if skills is there.
