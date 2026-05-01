@@ -4,9 +4,9 @@ import ViewButton from "./ViewButton";
 import WithdrawButton from "./WithdrawButton";
 import { getTimeAgo } from "@/utils/getTimeAgo";
 
-export default function InternshipCardApplied({ internshipData }) {
-  const internshipInfo = internshipData.internship_id;
-  const internshipId = internshipInfo._id.toString();
+export default function InternshipCardApplied({ internshipData, companyLogo }) {
+  const internshipInfo = internshipData.internship;
+  const internshipId = internshipInfo.toString();
 
   const colorsMap = {
     pending: "#dbeafe",
@@ -20,7 +20,12 @@ export default function InternshipCardApplied({ internshipData }) {
         <div className="flex justify-start gap-4">
           {" "}
           <div className="relative w-16 h-16 rounded-full  select-none">
-            <Image src="/demoImage.webp" fill alt="logo" />{" "}
+            <Image
+              src={companyLogo}
+              fill
+              alt="logo"
+              className="object-cover"
+            />{" "}
           </div>
           <div className="flex flex-col gap-5">
             <div className="text-xl ">{internshipInfo.title}</div>

@@ -23,7 +23,12 @@ export default function InternshipsCard({ internshipInfo }) {
       <div className="flex justify-start gap-4">
         {" "}
         <div className="relative w-16 h-16 rounded-full  select-none">
-          <Image src="/demoImage.webp" fill alt="logo" />{" "}
+          <Image
+            src={internshipInfo?.company_logo}
+            fill
+            alt="logo"
+            className="object-cover"
+          />{" "}
         </div>
         <div className="flex flex-col gap-5">
           <div className="text-xl ">{internshipInfo.title}</div>

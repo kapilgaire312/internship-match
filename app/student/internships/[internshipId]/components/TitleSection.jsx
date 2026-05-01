@@ -5,12 +5,19 @@ export default function TitleSection({ internshipData }) {
     internshipData.matchColour ||
     getMatchColour(internshipData.matchScore) ||
     "#e5e7eb";
+
+  console.log(internshipData.company_logo);
   return (
     <div className="flex justify-between border-b pb-6">
       <div className="flex justify-start gap-5">
         {" "}
         <div className="relative w-18 h-18 border rounded">
-          <Image fill alt="company-logo" src={internshipData?.company_logo} />
+          <Image
+            fill
+            alt="company-logo"
+            src={internshipData?.company_logo}
+            className="object-cover"
+          />
         </div>
         <div className="flex flex-col gap-1">
           <div className="text-2xl font-semibold">{internshipData?.title}</div>

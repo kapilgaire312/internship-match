@@ -3,6 +3,7 @@ import SearchBar from "@/components/SearchBar";
 import InternshipCardApplied from "./internshipCardApplied";
 import getAppliedInternships from "@/lib/utils/getAppliedInternships";
 import BackButton from "@/components/home/BackButton";
+import getCompanyLogoUrl from "@/lib/utils/getCompanyLogoUrl";
 
 export default async function AppliedPage({ searchParams }) {
   const { search } = await searchParams;
@@ -57,10 +58,14 @@ export default async function AppliedPage({ searchParams }) {
           )}
           {!error &&
             appliedInternhsips?.map((internshipData, index) => {
+              const company_logo = getCompanyLogoUrl(
+                internshipData.internship.company_logo,
+              );
               return (
                 <InternshipCardApplied
                   key={index}
                   internshipData={internshipData}
+                  companyLogo={company_logo}
                 />
               );
             })}
