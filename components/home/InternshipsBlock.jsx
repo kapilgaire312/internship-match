@@ -1,8 +1,11 @@
 import InternshipsCard from "./InternshipsCard";
 import { getSuggestedInternships } from "@/lib/utils/getSuggestedInternships";
 import BackButton from "./BackButton";
+import { auth } from "@/lib/auth";
 
 export default async function InternshipsBlock({ search }) {
+  const session = await auth();
+  const studentLoggedIn = session?.user?.role === "student";
   const internshipsBySector = await getSuggestedInternships(search);
   let error = false;
 
@@ -22,10 +25,16 @@ export default async function InternshipsBlock({ search }) {
           </div>
         ) : (
           <div>
-            <div className="text-2xl font-medium">Suggested Internships</div>
+            <div className="text-2xl font-medium">
+              {studentLoggedIn
+                ? "Suggested Internships"
+                : "Featured Internships"}
+            </div>
             <div>
               <p className="text-gray-500 ml-3">
-                Opportunities that match your sectors in your profile.
+                {studentLoggedIn
+                  ? "Opportunities that match your sectors in your profile."
+                  : "Opportunities from various companies across different sectors."}
               </p>
             </div>
           </div>
