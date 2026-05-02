@@ -41,12 +41,17 @@ export default function RetriveEmailButton({
       setIsPending(false);
     }, 100);
   }
+  function checkEmpty() {
+    const accepted = applicantsList.find((i) => i.status === "accepted");
+    if (!accepted) return true;
+    return false;
+  }
   return (
     <>
       <button
-        disabled={isPending}
+        disabled={isPending || checkEmpty()}
         onClick={handleOnClick}
-        className="flex items-center w-68 gap-2 bg-[#2762ea]  text-white py-2 px-6 rounded-xl cursor-pointer hover:opacity-80 active:opacity-70"
+        className={`flex items-center w-68 gap-2 ${checkEmpty() ? "bg-gray-400 " : "bg-[#2762ea] "}  text-white py-2 px-6 rounded-xl cursor-pointer hover:opacity-80 active:opacity-70`}
       >
         {" "}
         <div className="relative h-5 w-5">
