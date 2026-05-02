@@ -56,6 +56,13 @@ export default function InternshipInfo({ internshipData }) {
           isApplied={internshipData.isApplied}
         />
       </div>
+      {internshipData?.blockMessage && (
+        <div className="flex justify-center ">
+          <p className="text-center bg-gray-200 px-2 rounded-xl text-gray-500">
+            {internshipData.blockMessage}
+          </p>
+        </div>
+      )}
     </div>
   );
 }
