@@ -1,7 +1,9 @@
 import Link from "next/link";
 import LoginForm from "./LoginForm";
+import checkUserAndRedirect from "@/lib/utils/checkUserAndRedirect";
 
-export default function Login() {
+export default async function Login() {
+  await checkUserAndRedirect();
   return (
     <div className="flex h-[70vh] justify-center items-center align-middle ">
       <div className=" p-4 rounded-xl text-center bg-white sm:w-[30vw] sm:h-[50vh]">

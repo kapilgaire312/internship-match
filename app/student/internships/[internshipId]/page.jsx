@@ -10,18 +10,8 @@ import ApplicationDetailsSection from "./components/ApplicationDetailsSection";
 export default async function InternshipPage({ params }) {
   const { internshipId } = await params;
 
-  // const headersList = await headers();
-  // const referer = headersList.get("referer") || "";
-  // const previousPage = referer.includes("matches")
-  //   ? "matches"
-  //   : referer.includes("applied")
-  //     ? "applied"
-  //     : "home";
-  //
   const previousPage = "matches";
   const internshipData = await getInternshipData(internshipId);
-
-  console.log("internwalaa", internshipData);
 
   return (
     <div className="px-10 flex flex-col gap-5">
