@@ -2,7 +2,6 @@ import EditProfilePicButton from "@/app/student/profile/components/EditProfilePi
 import Image from "next/image";
 
 export default function LogoSection({ logoUrl }) {
-  const logoTest = "/default_logo.png";
   return (
     <div className="bg-white p-6 rounded flex flex-col gap-4">
       <div className="flex flex-col gap-5">

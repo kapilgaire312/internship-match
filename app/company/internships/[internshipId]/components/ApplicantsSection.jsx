@@ -19,7 +19,12 @@ export default function ApplicationSection({ applicantInfo }) {
           {" "}
           <div>
             <div className="relative w-18 h-18 rounded-full overflow-hidden">
-              <Image src={applicantInfo.profilePicUrl} fill alt="profile_pic" />
+              <Image
+                src={applicantInfo.profilePicUrl}
+                fill
+                alt="profile_pic"
+                className="object-cover"
+              />
             </div>
           </div>
           <div className="flex flex-col gap-3">

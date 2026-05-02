@@ -23,6 +23,7 @@ export default function InfoSection({ applicantInfo }) {
                 src={applicantInfo?.profilePicUrl}
                 fill
                 alt="profile_pic"
+                className="object-cover"
               />
             </div>
           </div>

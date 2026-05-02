@@ -27,7 +27,7 @@ export default function ReleasedIternshipCard({ internshipInfo }) {
         <div className="flex gap-1 items-center">
           {" "}
           <div className="relative w-4 h-4">
-            <Image src="/location-logo.svg" fill alt="type-icon" />
+            <Image src="/time-period.svg" fill alt="type-icon" />
           </div>
           Posted {getTimeAgo(internshipInfo.createdAt)}
         </div>

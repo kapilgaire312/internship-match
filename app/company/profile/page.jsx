@@ -3,6 +3,7 @@ import BasicInfoSection from "./components/BasicInfoSection";
 import LocationAndContactSection from "./components/LocationAndContactSection";
 import LogoSection from "./components/LogoSection";
 import SocialLinksSeciton from "./components/SocialLinksSection";
+import LogoutButton from "./components/LogoutButton";
 
 export default async function CompanyProfile() {
   const companyInfo = await getProfileInfo();
@@ -20,7 +21,10 @@ export default async function CompanyProfile() {
   console.log(logoUrl);
 
   return (
-    <div className="px-10 py-4 ">
+    <div className="px-10 py-2 ">
+      <div className="flex justify-end mb-2">
+        <LogoutButton />
+      </div>
       <div className="grid grid-cols-[65vw_1fr] gap-6">
         <BasicInfoSection basicInfoData={basicInfoData} />
         <LogoSection logoUrl={logoUrl} />
