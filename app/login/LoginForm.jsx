@@ -29,7 +29,7 @@ export default function LoginForm() {
       <div>
         {" "}
         <label htmlFor="email" className="block">
-          email:
+          Email:
         </label>
         <input
           className={`border shadow-md rounded w-[90%] h-9 sm:text-xl ${error?.path === "email" && "border-red-500"} p-2 `}
@@ -45,7 +45,7 @@ export default function LoginForm() {
       <div>
         {" "}
         <label htmlFor="password" className="block">
-          password:
+          Password:
         </label>
         <input
           className={`border shadow-md rounded w-[90%] h-9 sm:text-xl ${error?.path === "password" && "border-red-500"} p-2`}

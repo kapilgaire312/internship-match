@@ -15,11 +15,11 @@ export default function Login() {
             <span className="text-blue-700 block">
               {" "}
               <Link className="underline" href={"/register/student"}>
-                Candidate
+                Student
               </Link>{" "}
               <span> / </span>
               <Link className="underline" href={"/register/company"}>
-                Recruiter
+                Company
               </Link>
             </span>
           </p>

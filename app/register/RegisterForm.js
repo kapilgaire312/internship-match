@@ -3,12 +3,12 @@
 import handleRegisterAction from "@/actions/handleRegisterAction";
 import { useState } from "react";
 import { useFormStatus } from "react-dom";
-import { email } from "zod";
 
 export default function RegisterForm({ role }) {
   const [error, setError] = useState();
   const { pending } = useFormStatus();
   const [typedValues, setTypedValues] = useState({ name: "", email: "" });
+  console.log(role);
 
   async function handleSubmit(formdata) {
     const response = await handleRegisterAction(formdata, role);
@@ -26,7 +26,7 @@ export default function RegisterForm({ role }) {
       <div>
         {" "}
         <label htmlFor="name" className="block">
-          full name:
+          {role === "student" ? "Full name:" : "Company name:"}
         </label>
         <input
           className={`border shadow-md rounded w-[90%] h-9 sm:text-xl ${error?.path === "name" && "border-red-500"} p-2`}
@@ -42,7 +42,7 @@ export default function RegisterForm({ role }) {
       <div>
         {" "}
         <label htmlFor="email" className="block">
-          email:
+          Email:
         </label>
         <input
           className={`border shadow-md rounded w-[90%] h-9 sm:text-xl ${error?.path === "email" && "border-red-500"} p-2`}
@@ -58,7 +58,7 @@ export default function RegisterForm({ role }) {
       <div>
         {" "}
         <label htmlFor="password" className="block">
-          password:
+          Password:
         </label>
         <input
           className={`border shadow-md rounded w-[90%] h-9 sm:text-xl ${error?.path === "password" && "border-red-500"} p-2`}
@@ -73,7 +73,7 @@ export default function RegisterForm({ role }) {
       <div>
         {" "}
         <label htmlFor="cpassword" className="block">
-          confirm password:
+          Confirm password:
         </label>
         <input
           className="border shadow-md rounded w-[90%] h-9 p-2"

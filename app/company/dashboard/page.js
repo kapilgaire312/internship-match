@@ -1,3 +1,9 @@
+import TopSection from "./components/TopSection";
+
 export default async function Dashboard() {
-  return <div>Welcome</div>;
+  return (
+    <div>
+      <TopSection />
+    </div>
+  );
 }

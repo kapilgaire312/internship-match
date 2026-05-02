@@ -1,7 +1,7 @@
 import InternshipsBlock from "@/components/home/InternshipsBlock";
 import SearchBlock from "@/components/home/SearchBlock";
 
-export default async function Home({ searchParams }) {
+export default async function HomePage({ searchParams }) {
   const params = await searchParams;
 
   return (
