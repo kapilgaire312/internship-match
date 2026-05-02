@@ -54,8 +54,12 @@ export default function BasicInfoCard({ basicInfo }) {
             {" "}
             <button
               type="submit"
-              className="bg-[#f5f6fc] w-full py-2 border border-gray-300 rounded-xl hover:opacity-70 cursor-pointer active:opacity-40"
+              className="bg-[#f5f6fc] flex justify-center items-center w-full py-2 border border-gray-300 rounded-xl hover:opacity-70 cursor-pointer active:opacity-40"
             >
+              {" "}
+              <div className="relative h-6 w-5">
+                <Image src={"/logout-logo.svg"} fill alt="logout-logo" />
+              </div>
               Logout
             </button>
           </form>

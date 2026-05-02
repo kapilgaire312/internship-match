@@ -74,7 +74,11 @@ export default async function handleUploadProfilePicAction(prevVal, formData) {
 
     try {
       //donot disturb the upload process if deletion of previous profile pic fails.
-      if (previousProfilePicKey && previousProfilePicKey.length !== 0)
+      if (
+        previousProfilePicKey &&
+        previousProfilePicKey.length !== 0 &&
+        previousProfilePicKey.startsWith("http")
+      )
         await s3Client.send(deleteCommand);
     } catch (error) {
       console.log(error);

@@ -86,7 +86,9 @@ export default async function handleUploadLogoAction(prevVal, formData) {
 
     try {
       //donot disturb the upload process if deletion of previous logo fails.
-      await s3Client.send(deleteCommand);
+      console.log(previousLogoKey);
+      if (previousLogoKey && !previousLogoKey.startsWith("http"))
+        await s3Client.send(deleteCommand);
     } catch (error) {
       console.log(error);
     }
