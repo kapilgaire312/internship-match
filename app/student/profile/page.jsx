@@ -9,6 +9,26 @@ import SkillsSection from "./components/SkillsSection";
 export default async function ProfilePage() {
   const data = await getStudentProfileInfo();
   //  console.log(data);
+  //
+  if (!data) {
+    return (
+      <div className="flex justify-center items-center h-[60vh]">
+        <div className="flex justify-center items-center w-[65vw] h-[40vh] bg-white rounded-xl text-xl font-medium text-gray-500">
+          Login to view your profile.
+        </div>
+      </div>
+    );
+  }
+
+  if (data.error) {
+    return (
+      <div className="flex justify-center items-center h-[60vh]">
+        <div className="flex justify-center items-center w-[65vw] h-[40vh] bg-white rounded-xl text-xl font-medium text-gray-500">
+          Failed to get your profile Info. Try again.
+        </div>
+      </div>
+    );
+  }
 
   let {
     basicInfo,

@@ -26,7 +26,7 @@ export default async function AppliedPage({ searchParams }) {
             </div>
           </div>
         </div>
-        <div className="flex gap-[5vw] w-[70vw] mt-2">
+        <div className="flex gap-[5vw] w-[70vw] ">
           {!error && (
             <div className="  flex justify-center">
               <div className="w-[70vw]">
@@ -37,7 +37,7 @@ export default async function AppliedPage({ searchParams }) {
             </div>
           )}
         </div>
-        <div className="flex  flex-col justify-center mt-8  gap-10">
+        <div className="flex  flex-col justify-center  gap-10">
           {" "}
           <div className="flex justify-start w-full">
             {search && (
