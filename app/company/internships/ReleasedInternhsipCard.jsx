@@ -63,7 +63,7 @@ export default function ReleasedIternshipCard({ internshipInfo }) {
         <div>
           <Link href={`internships/${internshipInfo._id}`}>
             {" "}
-            <div className="border p-2 rounded bg-[#f5f6fc] hover:opacity-70 active:opacity-50 select-none cursor-pointer">
+            <div className="border p-2 rounded bg-[#f5f6fc] hover:underline transition-all duration-100 ease-in-out hover:opacity-70 active:opacity-50 select-none cursor-pointer">
               View Applicants
             </div>
           </Link>

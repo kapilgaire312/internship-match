@@ -21,7 +21,7 @@ export default function CompanyNavbar() {
           <div className="flex items-center">
             {" "}
             <Link className="contents" href="/company/dashboard">
-              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1 hover:opacity-80 active:opacity-60 ">
+              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1  hover:underline transition-all duration-300 ease-in-out hover:opacity-80 active:opacity-60 ">
                 {" "}
                 <div className="relative h-4 w-4 ">
                   {" "}
@@ -39,7 +39,7 @@ export default function CompanyNavbar() {
           <div className="flex items-center">
             {" "}
             <Link className="contents" href="/company/internships">
-              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1  hover:opacity-80 active:opacity-60 ">
+              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1  hover:underline transition-all duration-300 ease-in-out  hover:opacity-80 active:opacity-60 ">
                 {" "}
                 <div className="relative h-4 w-4 ">
                   {" "}
@@ -57,7 +57,7 @@ export default function CompanyNavbar() {
           <div className="flex items-center">
             {" "}
             <Link className="contents" href="/company/profile">
-              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1 hover:opacity-80 active:opacity-60 ">
+              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1  hover:underline transition-all duration-300 ease-in-out hover:opacity-80 active:opacity-60 ">
                 {" "}
                 <div className="relative h-4 w-4 ">
                   {" "}

@@ -21,7 +21,7 @@ export default function StudentNavbar() {
           <div className="flex items-center">
             {" "}
             <Link className="contents" href="/student/home">
-              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-1 px-2 py-1 hover:opacity-80 active:opacity-60 ">
+              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-1 px-2 py-1 hover:underline transition-all duration-300 ease-in-out hover:opacity-80 active:opacity-60 ">
                 {" "}
                 <div className="relative h-5 w-6 ">
                   {" "}
@@ -34,7 +34,7 @@ export default function StudentNavbar() {
           <div className="flex items-center">
             {" "}
             <Link className="contents" href="/student/matches">
-              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1 hover:opacity-80 active:opacity-60 ">
+              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1 hover:underline transition-all duration-300 ease-in-out  hover:opacity-80 active:opacity-60 ">
                 {" "}
                 <div className="relative h-4 w-4">
                   {" "}
@@ -47,7 +47,7 @@ export default function StudentNavbar() {
           <div className="flex items-center">
             {" "}
             <Link className="contents" href="/student/applied">
-              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1  hover:opacity-80 active:opacity-60 ">
+              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1  hover:underline transition-all duration-300 ease-in-out  hover:opacity-80 active:opacity-60 ">
                 {" "}
                 <div className="relative h-4 w-4 ">
                   {" "}
@@ -61,7 +61,7 @@ export default function StudentNavbar() {
           <div className="flex items-center">
             {" "}
             <Link className="contents" href="/student/profile">
-              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1 hover:opacity-80 active:opacity-60 ">
+              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-2 py-1  hover:underline transition-all duration-300 ease-in-out hover:opacity-80 active:opacity-60 ">
                 {" "}
                 <div className="relative h-4 w-4 ">
                   {" "}

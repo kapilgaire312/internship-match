@@ -30,7 +30,7 @@ export default function HomeNavbar() {
           <div className="flex items-center">
             {" "}
             <Link className="contents" href="/register/student">
-              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-3 py-2  hover:opacity-80 hover:underline active:opacity-60 ">
+              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-3 py-2  hover:opacity-80  hover:underline transition-all duration-300 ease-in-out  active:opacity-60 ">
                 {" "}
                 Register as student
               </div>{" "}
@@ -39,7 +39,7 @@ export default function HomeNavbar() {
           <div className="flex items-center">
             {" "}
             <Link className="contents" href="/register/company">
-              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-3 py-2  hover:opacity-80 hover:underline active:opacity-60 ">
+              <div className="bg-[#ebf1f7] rounded-xl flex items-center gap-2 px-3 py-2  hover:opacity-80 hover:underline transition-all duration-300 ease-in-out active:opacity-60 ">
                 {" "}
                 Register as company
               </div>{" "}
