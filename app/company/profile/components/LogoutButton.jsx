@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function LogoutButton() {
   return (
     <button
-      className="bg-gray-200 flex gap-1 px-4 items-center py-2 border border-gray-300 rounded-xl hover:opacity-70 cursor-pointer active:opacity-40"
+      className="bg-gray-200 flex gap-1 px-4 items-center py-2 border border-gray-300 rounded-xl hover:opacity-70 cursor-pointer active:opacity-40 hover:underline transition-all duration-100 ease-in-out "
       onClick={() => {
         handleSignOutAction();
       }}

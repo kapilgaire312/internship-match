@@ -54,7 +54,7 @@ export default function BasicInfoCard({ basicInfo }) {
             {" "}
             <button
               type="submit"
-              className="bg-[#f5f6fc] flex justify-center items-center w-full py-2 border border-gray-300 rounded-xl hover:opacity-70 cursor-pointer active:opacity-40"
+              className="bg-[#f5f6fc] flex justify-center items-center w-full py-2 border border-gray-300 rounded-xl hover:opacity-80 cursor-pointer active:opacity-60 hover:underline transition-all duration-100 ease-in-out "
             >
               {" "}
               <div className="relative h-6 w-5">
