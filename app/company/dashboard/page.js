@@ -6,8 +6,8 @@ export default async function Dashboard({ searchParams }) {
   const dashboardData = await getDashboardData(filter);
   console.log(dashboardData);
   return (
-    <div>
-      <TopSection />
+    <div className="px-10 py-4">
+      <TopSection dashboardData={dashboardData} filter={filter} />
     </div>
   );
 }
