@@ -11,12 +11,11 @@ export default function MostAppliedGraphSection({ internshipData, filter }) {
   let filterMessage = "last 1 month";
   if (filterMap.has(filter)) filterMessage = filterMap.get(filter);
 
-  console.log(internshipData);
   return (
     <div className="bg-white flex flex-col justify-center items-center rounded-xl p-6 gap-4">
       <div className="flex justify-start w-full">
         <div>
-          <p className="text-xl font-medium ">Most Applied Internships</p>
+          <p className="text-xl font-semibold">Most Applied Internships</p>
           <p className="text-gray-500 text-sm">
             {" "}
             Top internships by applications for {filterMessage}.
@@ -28,7 +27,7 @@ export default function MostAppliedGraphSection({ internshipData, filter }) {
           <BarChart
             style={{
               width: "100%",
-              maxWidth: "85vw",
+              maxWidth: "90vw",
               maxHeight: "35vh",
               aspectRatio: 1.618,
             }}

@@ -4,7 +4,7 @@ export default function RoleInfoCard({ data }) {
   return (
     <div className="bg-white py-4 px-4 flex flex-col gap-3 shadow-sm rounded-xl w-84">
       <div className="flex justify-between">
-        <p className="font-medium text-xl">{data.title}</p>
+        <p className="font- text-xl">{data.title}</p>
         <p className="relative h-7 w-7  ">
           {" "}
           <Image
@@ -16,7 +16,7 @@ export default function RoleInfoCard({ data }) {
         </p>
       </div>
       <div className="flex flex-col gap-2">
-        <p className="text-2xl font-bold">{data.value || "--"}</p>
+        <p className="text-2xl font-medium">{data.value || "--"}</p>
         <p className="text-gray-500 text-sm"> {data.message}</p>
       </div>
     </div>
