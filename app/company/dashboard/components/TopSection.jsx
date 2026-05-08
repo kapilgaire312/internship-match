@@ -38,7 +38,7 @@ export default function TopSection({ dashboardData, filter }) {
             <p className="relative w-4 h-4">
               <Image src="/applied-icon.svg" alt="icon" fill />
             </p>
-            {dashboardData.totalInternshipsCount} internships released
+            {dashboardData.totalInternshipsCount || "--"} internships released
           </div>
         </div>
         <div className="bg-white rounded-xl px-4 py-3 shadow-md flex flex-col gap-2">
@@ -46,7 +46,7 @@ export default function TopSection({ dashboardData, filter }) {
             <SelectFilter filterValue={filter} />
           </div>
           <p className="text-2xl font-semibold">
-            {dashboardData.totalApplicationsCount}
+            {dashboardData.totalApplicationsCount || "--"}
           </p>
           <p className="text-gray-500 text-sm">
             Total applications received across open and closed internship

@@ -16,7 +16,7 @@ export default function RoleInfoCard({ data }) {
         </p>
       </div>
       <div className="flex flex-col gap-2">
-        <p className="text-2xl font-bold">{data.value}</p>
+        <p className="text-2xl font-bold">{data.value || "--"}</p>
         <p className="text-gray-500 text-sm"> {data.message}</p>
       </div>
     </div>
