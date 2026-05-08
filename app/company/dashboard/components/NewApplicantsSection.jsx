@@ -10,9 +10,15 @@ export default function NewApplicantsSection({ applicantsInfo }) {
         </p>
       </div>
       <div className="flex flex-col gap-4 mt-4">
-        {applicantsInfo.map((item, index) => {
-          return <NewApplicantCard key={index} applicantInfo={item} />;
-        })}
+        {!applicantsInfo || applicantsInfo.length === 0 ? (
+          <div className="flex w-full h-[20vh] text-gray-500 font-medium items-center justify-center">
+            No new applicants found for the selected time period.
+          </div>
+        ) : (
+          applicantsInfo.map((item, index) => {
+            return <NewApplicantCard key={index} applicantInfo={item} />;
+          })
+        )}
       </div>
     </div>
   );

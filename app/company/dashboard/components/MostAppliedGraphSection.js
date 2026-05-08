@@ -90,7 +90,7 @@ function getHighestInterest(internshipData) {
       highesInterest.index = index;
     }
   });
-  return internshipData[highesInterest.index].title;
+  return internshipData[highesInterest.index]?.title;
 }
 
 function getAverageApplicants(internshipData) {
@@ -99,5 +99,5 @@ function getAverageApplicants(internshipData) {
   internshipData.forEach((item) => {
     count += item.total_applications_count;
   });
-  return Math.round(count / internshipData.length);
+  return Math.round(count / internshipData?.length);
 }

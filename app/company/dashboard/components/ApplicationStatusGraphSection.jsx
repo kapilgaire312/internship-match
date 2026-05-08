@@ -98,7 +98,7 @@ export default function ApplicationStatusGraphSection({
             {getFormatedPercent(
               dashboardData.pendingCount,
               dashboardData.totalApplicationsCount,
-            )}
+            ) || "--"}
             % under review
           </p>
         </div>
@@ -109,7 +109,7 @@ export default function ApplicationStatusGraphSection({
             {getFormatedPercent(
               dashboardData.shortlistedCount,
               dashboardData.totalApplicationsCount,
-            )}
+            ) || "--"}
             % moved forward
           </p>
         </div>
@@ -119,7 +119,7 @@ export default function ApplicationStatusGraphSection({
             {getFormatedPercent(
               dashboardData.rejectedCount,
               dashboardData.totalApplicationsCount,
-            )}
+            ) || "--"}
             % not selected
           </p>
         </div>
@@ -130,5 +130,6 @@ export default function ApplicationStatusGraphSection({
 
 function getFormatedPercent(numerator, denominator) {
   const percent = (numerator / denominator) * 100;
+  if (isNaN(percent)) return null;
   return Number(percent.toFixed(2));
 }

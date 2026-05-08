@@ -8,6 +8,12 @@ export default async function Dashboard({ searchParams }) {
   const { filter } = await searchParams;
   const dashboardData = await getDashboardData(filter);
   console.log(dashboardData);
+  if (!dashboardData || dashboardData.error)
+    return (
+      <div className="bg-white flex justify-center items-center w-full h-[80vh] text-xl font-medium text-gray-500">
+        {dashboardData?.error || "Failed getting dashboard data."}
+      </div>
+    );
   return (
     <div className="px-10 py-4 flex flex-col gap-10">
       <TopSection dashboardData={dashboardData} filter={filter} />
