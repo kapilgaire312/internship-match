@@ -69,6 +69,7 @@ export default async function handleApplyNowAction(internshipId) {
     const newApplication = new Application({
       student_id: studentId,
       internship_id: internshipId,
+      company_id: internship.company_id,
       match_score: matchScore,
       matched_skills: matchedSkills,
     });
