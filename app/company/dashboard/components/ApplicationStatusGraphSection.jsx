@@ -1,14 +1,5 @@
 "use client";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  LabelList,
-  Cell,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, LabelList, Cell } from "recharts";
 
 export default function ApplicationStatusGraphSection({
   dashboardData,
@@ -79,7 +70,7 @@ export default function ApplicationStatusGraphSection({
             <Bar
               dataKey="value"
               radius={[15, 15, 15, 15]}
-              barSize={30}
+              barSize={25}
               name={""}
             >
               {" "}

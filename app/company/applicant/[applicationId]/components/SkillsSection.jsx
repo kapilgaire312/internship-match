@@ -33,7 +33,10 @@ export default function SkillsSection({ applicantInfo }) {
         title={"Matched Skills"}
         skillsList={applicantInfo?.matched_skills}
       />
-      <SkillsBlock title={"User Skills"} skillsList={applicantInfo?.skills} />
+      <SkillsBlock
+        title={"Student Skills"}
+        skillsList={applicantInfo?.skills}
+      />
     </div>
   );
 }
