@@ -67,7 +67,7 @@ export default function MostAppliedGraphSection({ internshipData, filter }) {
           </p>
         </div>
         <div className="w-full bg-gray-100 p-4 rounded-xl">
-          <p className="text-gray-500">Average applicants</p>
+          <p className="text-gray-500">Average applicantions</p>
           <p className="font-medium">
             {getAverageApplicants(internshipData) || "--"}{" "}
           </p>
