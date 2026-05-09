@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 
 export default function ViewButton({ internshipId }) {
+  console.log(internshipId);
   const router = useRouter();
   function handleClick() {
     router.push(`/student/internships/${internshipId}`);

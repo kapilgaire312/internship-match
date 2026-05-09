@@ -6,7 +6,7 @@ import { getTimeAgo } from "@/utils/getTimeAgo";
 
 export default function InternshipCardApplied({ internshipData, companyLogo }) {
   const internshipInfo = internshipData.internship;
-  const internshipId = internshipInfo.toString();
+  const internshipId = internshipInfo._id.toString();
 
   const colorsMap = {
     pending: "#dbeafe",
