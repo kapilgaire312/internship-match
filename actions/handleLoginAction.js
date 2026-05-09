@@ -1,7 +1,6 @@
 "use server";
 
-import { auth, signIn } from "@/lib/auth";
-import dbConnect from "@/lib/dbConnect";
+import { signIn } from "@/lib/auth";
 
 import { loginSchema } from "@/lib/utils/auth.validation";
 import CustomError from "@/utils/CustomError";
@@ -28,11 +27,6 @@ export default async function handleLoginAction(prevState, formData) {
     if (!res?.error === "SERVER_ERROR") {
       throw new CustomError("Something went wrong. Try again.");
     }
-
-    console.log("resss", res);
-    const session = await auth();
-
-    console.log("sssiossos", session);
   } catch (error) {
     //catch and return zoderror
     if (error instanceof ZodError) {
