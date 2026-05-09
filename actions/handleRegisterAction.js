@@ -14,6 +14,13 @@ export default async function handleRegisterAction(formData, role = "student") {
   try {
     const data = Object.fromEntries(formData.entries()); // converting form data into js object, which zod accepts.
 
+    const availableRoles = new Set(["student", "company"]);
+    if (!availableRoles.has(role))
+      throw new CustomError(
+        "Can only register as a student or a company!",
+        "err",
+      );
+
     //validate the data
     if (data.password != data.cpassword)
       throw new CustomError("Passwords don't match.", "err"); //calling the custom error to catch it effectively in the catch block
