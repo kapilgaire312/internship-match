@@ -1,30 +1,40 @@
 export default function StudentsTable({ students }) {
-  console.log(students);
   return (
     <table className="w-full table-auto border-collapse text-left ">
       <thead className="text-gray-500 ">
         <tr>
-          <th className="font-medium">Name</th>
+          <th className="font-medium py-2">Name</th>
           <th className="font-medium">Email</th>
-          <th className="font-medium">Status</th>
+          <th className="font-medium text-center pr-5">Status</th>
           <th className="font-medium">Actions</th>
         </tr>
       </thead>
       <tbody className="font-normal text">
         {!students || students.length === 0 ? (
           <tr className="h-64 ">
-            <td colSpan={4} className="text-center align-middle">
+            <td colSpan={4} className="text-center align-middle p-8">
               No records available
             </td>
           </tr>
         ) : (
           <>
             {students.map((student, index) => {
+              const color = student.isBlocked ? "#e5e7eb" : "#d1fae5";
+              const student_id = student._id.toString();
               return (
                 <tr key={index}>
-                  <td>{student.name}</td>
+                  <td className="py-4">{student.name}</td>
                   <td>{student.email}</td>
-                  <td>{student.isBlocked ? "Blocked" : "Active"}</td>
+                  <td className="pr-5">
+                    {" "}
+                    <p
+                      className="py-1 rounded-2xl text-center "
+                      style={{ backgroundColor: color }}
+                    >
+                      {" "}
+                      {student.isBlocked ? "Blocked" : "Active"}
+                    </p>{" "}
+                  </td>
                   <td>{student.name}</td>
                 </tr>
               );

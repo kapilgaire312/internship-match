@@ -1,5 +1,5 @@
-import Image from "next/image";
 import StudentsTable from "./components/StudentsTable";
+import AdminSearchBar from "./components/AdminSearchBar";
 import getStudents from "@/lib/utils/admin/getStudents";
 export default async function StudentsPage({ searchParams }) {
   const { search } = await searchParams;
@@ -19,15 +19,7 @@ export default async function StudentsPage({ searchParams }) {
               Manage student accounts across the platform.
             </p>
           </div>
-          <div className="border bg-gray-200 h-8 rounded flex items-center gap-1 px-2 w-84">
-            <div className="relative h-6 w-6">
-              <Image src="/search-icon.svg" fill alt="search" />
-            </div>
-            <input
-              className="w-full focus:outline-none focus:ring-0 px-1 py-1 "
-              placeholder="Search students by name or email..."
-            />
-          </div>
+          <AdminSearchBar placeholder="Search students by name or email..." />
         </div>
         <div>
           <StudentsTable students={students} />
