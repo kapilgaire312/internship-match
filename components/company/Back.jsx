@@ -3,11 +3,11 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-export default function Back({ message }) {
+export default function Back({ message, path = "/company/internships" }) {
   const router = useRouter();
 
   function handleClick() {
-    router.replace("/company/internships");
+    router.replace(path);
   }
 
   return (

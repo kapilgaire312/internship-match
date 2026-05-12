@@ -5,7 +5,7 @@ import ConfirmPopup from "@/components/admin/ConfirmPopup";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function ResponseSection({ studentId, studentName, isBlocked }) {
+export default function ResponseSection({ studentId, studentName, isBlocked, disableView }) {
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
   const message = {
@@ -37,9 +37,9 @@ export default function ResponseSection({ studentId, studentName, isBlocked }) {
   return (
     <div className="flex justify-center ">
       <div className="flex  justify-between items-center gap-10">
-        <div className="border flex items-center hover:opacity-70 active:opacity-50 transition-all duration-100 ease-in-out h-10  cursor-pointer rounded px-6 py-1 max-w-fit">
+        {!disableView && <div className="border flex items-center hover:opacity-70 active:opacity-50 transition-all duration-100 ease-in-out h-10  cursor-pointer rounded px-6 py-1 max-w-fit">
           <Link href={`/admin/students/${studentId}`}>View</Link>
-        </div>
+        </div>}
         <div>
           <ConfirmPopup
             trigger={trigger}
