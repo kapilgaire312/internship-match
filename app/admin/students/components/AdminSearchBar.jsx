@@ -3,10 +3,10 @@
 import Image from "next/image";
 import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-export default function AdminSearchBar({ placeholder }) {
+export default function AdminSearchBar({ placeholder, search }) {
   const pathname = usePathname();
   const router = useRouter();
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState(search || "");
 
   function handleSearch(e) {
     e.preventDefault();

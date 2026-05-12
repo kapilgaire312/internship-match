@@ -7,7 +7,6 @@ export default async function StudentsPage({ searchParams }) {
   console.log(students);
 
   return (
-
     <div className="bg-white p-4 rounded flex flex-col gap-8">
       <div className="flex justify-between items-center">
         <div>
@@ -16,7 +15,10 @@ export default async function StudentsPage({ searchParams }) {
             Manage student accounts across the platform.
           </p>
         </div>
-        <AdminSearchBar placeholder="Search students by name or email..." />
+        <AdminSearchBar
+          placeholder="Search students by name or email..."
+          search={search}
+        />
       </div>
       <div>
         <StudentsTable students={students} />
