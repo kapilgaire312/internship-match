@@ -1,3 +1,5 @@
+import ResponseSection from "./ResponseSection";
+
 export default function StudentsTable({ students }) {
   return (
     <table className="w-full table-auto border-collapse text-left ">
@@ -6,7 +8,7 @@ export default function StudentsTable({ students }) {
           <th className="font-medium py-2">Name</th>
           <th className="font-medium">Email</th>
           <th className="font-medium text-center pr-5">Status</th>
-          <th className="font-medium">Actions</th>
+          <th className="font-medium text-center ">Actions</th>
         </tr>
       </thead>
       <tbody className="font-normal text">
@@ -35,7 +37,10 @@ export default function StudentsTable({ students }) {
                       {student.isBlocked ? "Blocked" : "Active"}
                     </p>{" "}
                   </td>
-                  <td>{student.name}</td>
+                  <td>
+                    {" "}
+                    <ResponseSection studentId={student_id} studentName={student.name} isBlocked={student.isBlocked} />{" "}
+                  </td>
                 </tr>
               );
             })}
