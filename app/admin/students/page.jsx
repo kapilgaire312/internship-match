@@ -7,23 +7,19 @@ export default async function StudentsPage({ searchParams }) {
   console.log(students);
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="text-xl font-semibold border-b pb-4">
-        Student Management
-      </div>
-      <div className="bg-white p-4 rounded flex flex-col gap-8">
-        <div className="flex justify-between items-center">
-          <div>
-            <h2 className="text-xl font-medium">All Students</h2>
-            <p className="text-gray-500 text-sm">
-              Manage student accounts across the platform.
-            </p>
-          </div>
-          <AdminSearchBar placeholder="Search students by name or email..." />
-        </div>
+
+    <div className="bg-white p-4 rounded flex flex-col gap-8">
+      <div className="flex justify-between items-center">
         <div>
-          <StudentsTable students={students} />
+          <h2 className="text-xl font-medium">All Students</h2>
+          <p className="text-gray-500 text-sm">
+            Manage student accounts across the platform.
+          </p>
         </div>
+        <AdminSearchBar placeholder="Search students by name or email..." />
+      </div>
+      <div>
+        <StudentsTable students={students} />
       </div>
     </div>
   );

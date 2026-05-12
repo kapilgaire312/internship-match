@@ -37,7 +37,7 @@ export default function ResponseSection({ studentId, studentName, isBlocked }) {
   return (
     <div className="flex justify-center ">
       <div className="flex  justify-between items-center gap-10">
-        <div className="border px-2 py-1">
+        <div className="border flex items-center hover:opacity-70 active:opacity-50 transition-all duration-100 ease-in-out h-10  cursor-pointer rounded px-6 py-1 max-w-fit">
           <Link href={`/admin/students/${studentId}`}>View</Link>
         </div>
         <div>
