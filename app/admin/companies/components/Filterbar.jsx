@@ -6,14 +6,14 @@ export default async function FilterBar({ filter, search }) {
 
   const searchString = search ? `&search=${search}` : "";
   const navItems = [
-    { name: 'All', href: `/admin/companies?search=${search}` },
+    { name: 'All', href: `/admin/companies${searchString}` },
     { name: 'Pending', href: `/admin/companies?filter=pending${searchString}` },
     { name: 'Approved', href: `/admin/companies?filter=approved${searchString}` },
     { name: 'Rejected', href: `/admin/companies?filter=rejected${searchString}` },
     { name: 'Blacklisted', href: `/admin/companies?filter=blacklisted${searchString}` },
   ];
   return (
-    <nav className="flex items-center gap-4">
+    <nav className="flex items-center gap-8">
       {navItems.map((item) => (
         <Link
           key={item.name}

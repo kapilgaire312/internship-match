@@ -24,7 +24,7 @@ export default function ConfirmPopup({
       <DialogTrigger>
         <div
           className={`flex border  items-center hover:opacity-70 active:opacity-50 transition-all duration-100 ease-in-out h-10  cursor-pointer rounded px-6 py-1 max-w-fit`}
-          style={{ backgroundColor: trigger.color }}
+          style={{ backgroundColor: trigger.color, color: trigger.textColor || "black" }}
         >
 
           {trigger.value}
@@ -57,7 +57,7 @@ export default function ConfirmPopup({
             <button
               disabled={pendingInfo.isPending}
               onClick={async () => {
-                const closePopup = await handleResponse();
+                const closePopup = await handleResponse(trigger.value);
                 console.log(closePopup);
                 if (closePopup) { setOpen(false) }
               }}
