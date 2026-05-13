@@ -2,13 +2,15 @@
 import Link from "next/link";
 
 
-export default function FilterBar({ filter, search }) {
+export default async function FilterBar({ filter, search }) {
+
+  const searchString = search ? `&search=${search}` : "";
   const navItems = [
-    { name: 'All', href: '/admin/companies' },
-    { name: 'Pending', href: '/admin/companies?filter=pending' },
-    { name: 'Approved', href: '/admin/companies?filter=approved' },
-    { name: 'Rejected', href: '/admin/companies?filter=rejected' },
-    { name: 'Blacklisted', href: '/admin/companies?filter=blacklisted' },
+    { name: 'All', href: `/admin/companies?search=${search}` },
+    { name: 'Pending', href: `/admin/companies?filter=pending${searchString}` },
+    { name: 'Approved', href: `/admin/companies?filter=approved${searchString}` },
+    { name: 'Rejected', href: `/admin/companies?filter=rejected${searchString}` },
+    { name: 'Blacklisted', href: `/admin/companies?filter=blacklisted${searchString}` },
   ];
   return (
     <nav className="flex items-center gap-4">
