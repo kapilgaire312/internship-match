@@ -16,7 +16,7 @@ export default function Back({ message, path = "/company/internships" }) {
       onClick={handleClick}
     >
       <button className="flex">
-        <div className="relative w-8 h-6">
+        <div className="relative w-8 h-6 hover:opacity-70 active:opacity-50 transition-all duration-100 ease-in-out">
           <Image src="/back-arrow-logo.svg" fill alt="back-icon" />
         </div>
       </button>

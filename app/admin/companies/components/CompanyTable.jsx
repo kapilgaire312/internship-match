@@ -13,11 +13,11 @@ export default function CompanyTable({ companyList }) {
     notApplied: "New"
   };
   const statusColors = {
-    pending: "bg-yellow-200",
-    approved: "bg-green-200",
-    rejected: "bg-red-200",
-    blacklisted: "bg-gray-300",
-    notApplied: "bg-gray-100"
+    pending: "#FEF08A",      // yellow-200
+    approved: "#BBF7D0",     // green-200
+    rejected: "#FECACA",     // red-200
+    blacklisted: "#D1D5DB",  // gray-300
+    notApplied: "#F3F4F6"    // gray-100
   };
   if (companyList.error) {
     return <div className="flex bg-white rounded-lg justify-center items-center h-[20vh]">
@@ -95,16 +95,18 @@ export default function CompanyTable({ companyList }) {
                       </Link>
                     </div>
                   </td>
-                  <td className="p-2 ">
+                  <td className="px3-2 py-6 ">
                     {company.email}
                   </td>
-                  <td className={`p-2 `}>
+                  <td className={`px-2 py-6 `}>
+                    {console.log(statusColors[company.status])}
 
-                    <p className={` ${statusColors[company.status]} rounded-xl py-1 text-center`}>{status}</p>
+                    <p className={` rounded-xl py-1 text-center`}
+                      style={{ backgroundColor: statusColors[company.status] }} >{status}</p>
 
 
                   </td>
-                  <td className="p-2 text-center">
+                  <td className="px-2 py-6 text-center">
                     <ResponseSection status={company.status} companyId={companyId} companyName={company.name} />
                   </td>
                 </tr>

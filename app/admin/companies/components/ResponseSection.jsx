@@ -16,7 +16,7 @@ export default function ResponseSection({ status, companyId, companyName, allRes
   const pendingInfo = { isPending: loading, setIsPending: setLoading }
 
 
-  let actionsMap = { pending: [] }
+  let actionsMap = { pending: [], approved: [], rejected: [], blacklisted: [], notApplied: [] }
   if (!allResponse) {
     actionsMap.approved = ["View"]
     actionsMap.rejected = ["View"]
@@ -56,11 +56,11 @@ export default function ResponseSection({ status, companyId, companyName, allRes
 
   return (
     <div className="flex justify-center">
-      <div className=" flex justify-between items-center gap-4 " style={{ width: "15vw" }}>
+      <div className=" flex justify-between items-center gap-4 " style={{ width: actionsMap[status].length > 2 ? "25vw" : "15vw" }}>
         {actionsMap[status].map((action) => {
           const trigger = { value: action, color: getTriggerBackgroundColor(action), textColor: action === "Reject" || action === "Blacklist" ? "red" : action === "Approve" ? "white" : undefined }
           const message = {
-            title: `Confirm ${action} `,
+            title: `Confirm ${action === "Approve" ? "Approval" : action === "Reject" ? "Rejection" : action === "Blacklist" ? "Blacklisting" : action === "Unblacklist" ? "Unblacklisting" : ""} `,
             value: `Are you sure you want to ${action.toLowerCase()}`,
             unit: companyName ? ` ${companyName}` : " this company",
           }
