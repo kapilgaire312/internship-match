@@ -13,26 +13,46 @@ export default function SocialLinksSection({ companySocialLinks }) {
 
     </div>
     <div className="flex flex-col gap-2">
-      <div>
+      <div className="flex flex-col gap-1">
         <p className="font-medium text-gray-500"> Linkedin</p>
-        <p className="bg-gray-100 py-2 px-4 rounded-lg break-all text-wrap">
+        <a
+          className="bg-gray-100 py-2 px-4 rounded-lg break-all text-wrap hover:text-blue-600" style={{ color: "#3b82f6", }}
+          href={formatUrl(companySocialLinks?.linkedin)}
+          target="_blank"
+          rel="noopener noreferrer">
           {companySocialLinks?.linkedin || "--"}
-        </p>
+        </a>
 
       </div>
-      <div>
+      <div className="flex flex-col gap-1"  >
         <p className="font-medium text-gray-500"> X</p>
-        <p className="bg-gray-100 py-2 px-4 rounded-lg break-all text-wrap">
+        <a className="bg-gray-100 py-2 px-4 rounded-lg break-all text-wrap hover:text-blue-600"
+          style={{ color: "#3b82f6", }}
+          href={formatUrl(companySocialLinks?.x)}
+          target="_blank"
+          rel="noopener noreferrer">
           {companySocialLinks?.x || "--"}
-        </p>
+        </a>
       </div>
-      <div>
+      <div className="flex flex-col gap-1">
         <p className="font-medium text-gray-500"> Facebook</p>
-        <p className="bg-gray-100 py-2 px-4 rounded-lg break-all text-wrap">
+        <a className="bg-gray-100 py-2 px-4 rounded-lg break-all text-wrap hover:text-blue-600"
+          style={{ color: "#3b82f6", }}
+          href={formatUrl(companySocialLinks?.facebook)}
+          target="_blank"
+          rel="noopener noreferrer">
           {companySocialLinks?.facebook || "--"}
-        </p>
+        </a>
       </div>
     </div>
 
   </div>);
 }
+
+const formatUrl = (url) => {
+  if (!url) return "#";
+
+  return url.startsWith("http")
+    ? url
+    : `https://${url}`;
+};
