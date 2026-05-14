@@ -2,7 +2,7 @@
   <!-- Outer circle -->
   <circle cx="50" cy="50" r="44" fill="none" stroke="#4B5563" stroke-width="5"/>
   <!-- Dot above i -->
-  <circle cx="50" cy="27" r="5" fill="#4B5563"/>
+  <circle cx="50" cy="27" r="5" fill="#6B7280"/>
 
   <!-- Clip to hide the hook above y=42 so it doesn't spill into dot area -->
   <defs>

@@ -1,6 +1,7 @@
 import Back from "@/components/company/Back";
 import getCompanyDetails from "@/lib/utils/admin/getCompanyDetails";
 import ResponseSection from "../components/ResponseSection";
+import CompanyDescription from "@/components/company/CompnayDescription";
 
 export default async function CompanyProfilePage({ params }) {
   const { companyId } = await params;
@@ -30,9 +31,9 @@ export default async function CompanyProfilePage({ params }) {
     );
   }
   return (
-    <div className=" flex flex-col gap- ">
+    <div className=" flex flex-col gap-6 ">
 
-      <div className="flex justify-between pr-8 items-center bg-white px-2 py-6 rounded-lg shadow-sm w-full">
+      <div className="flex justify-between pr-8 items-center bg-white px-2 py-6 rounded-lg w-full">
         <div className="text-xl font-semibold flex gap-2 items-center">
           <Back path="/admin/companies" />
           Review Company Profile</div>
@@ -50,7 +51,9 @@ export default async function CompanyProfilePage({ params }) {
 
         </div>
       </div>
-      <div></div>
+      <div >
+        <CompanyDescription companyDetails={companyDetails} />
+      </div>
 
 
 
