@@ -46,8 +46,13 @@ export default function BasicInfoSection({ companyDetails }) {
               width={16}
               height={16}
             />
-
-            {companyDetails.website || "--"}</div>
+            <a href={formatUrl(companyDetails.website)} target="_blank" rel="noopener noreferrer"
+              className="hover:underline"
+              style={{ color: "#3b82f6", }}
+            >
+              {companyDetails.website || "--"}
+            </a>
+          </div>
         </div>
         <div>
           <p className="text-gray-500">Company Size</p>
@@ -85,3 +90,11 @@ export default function BasicInfoSection({ companyDetails }) {
     </div>
   );
 }
+
+const formatUrl = (url) => {
+  if (!url) return "#";
+
+  return url.startsWith("http")
+    ? url
+    : `https://${url}`;
+};
