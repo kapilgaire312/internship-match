@@ -1,9 +1,10 @@
-import Back from "@/components/company/Back";
+
 import getStudentDetails from "@/lib/utils/admin/getStudentDetails";
 import ResponseSection from "../components/ResponseSection";
 import StudentCard from "./components/StudentCard";
 import ItemsBlock from "./components/ItemsBlock";
 import ResumeSection from "./components/ResumeSection";
+import Back from "@/components/company/Back";
 
 export default async function StudentPage({ params }) {
   const { studentId } = await params;
@@ -42,7 +43,7 @@ export default async function StudentPage({ params }) {
 
         </div>
         <div className="flex gap-6 w-full ">
-          <div className=" flex-none" style={{ width: "22vw", minWidth: "22vw" }}><StudentCard studentDetails={studentDetails} /></div>
+          <div className=" flex-none" style={{ width: "24vw", minWidth: "24vw" }}><StudentCard studentDetails={studentDetails} /></div>
 
           <div className="flex flex-col gap-6 w-full">
             <div className="flex gap-6 justify-between">
