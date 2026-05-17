@@ -16,7 +16,8 @@ export default async function CompaniesPage({ searchParams }) {
     <div className="p-4 flex gap-8 flex-col">
       <div className="flex justify-between" >
         <FilterBar filter={filter} search={search} />
-        <AdminSearchBar placeholder="Search companies..." />
+        <div className="w-84"> <AdminSearchBar placeholder="Search companies..." /></div>
+
       </div>
       <CompanyTable companyList={comapanyList} />
 

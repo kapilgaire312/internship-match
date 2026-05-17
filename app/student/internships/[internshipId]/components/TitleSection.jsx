@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { getMatchColour } from "@/lib/utils/getInternshipsWithMatchScore.js";
-export default function TitleSection({ internshipData }) {
+export default function TitleSection({ internshipData, isAdmin }) {
   const matchColour =
     internshipData.matchColour ||
     getMatchColour(internshipData.matchScore) ||
@@ -27,7 +27,7 @@ export default function TitleSection({ internshipData }) {
         </div>
       </div>
       <div className="flex flex-col gap-2 items-center">
-        <div
+        {!isAdmin && <div
           className={`flex gap-2 rounded-2xl py-1 px-2 text-[0.9rem] font-medium`}
           style={{ backgroundColor: matchColour }}
         >
@@ -38,7 +38,7 @@ export default function TitleSection({ internshipData }) {
             <div>N/A</div>
           )}
           Match
-        </div>
+        </div>}
         {internshipData.isClosed && (
           <div className="bg-gray-300 px-2 py-1 rounded-xl">Closed </div>
         )}

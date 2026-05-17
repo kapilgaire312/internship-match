@@ -37,7 +37,7 @@ export default function AdminSearchBar({ placeholder }) {
 
   }
   return (
-    <div className="border bg-gray-200 h-10 rounded flex items-center gap-1 px-2 w-84">
+    <div className="border bg-gray-200 h-10 rounded flex items-center gap-1 px-2 w-full">
       <div className="relative h-6 w-6">
         <Image src="/search-icon.svg" fill alt="search" />
       </div>

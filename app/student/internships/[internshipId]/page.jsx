@@ -8,14 +8,23 @@ import getInternshipData from "@/lib/utils/getInternshipData";
 import ApplicationDetailsSection from "./components/ApplicationDetailsSection";
 
 export default async function InternshipPage({ params }) {
-  const { internshipId } = await params;
+  const { internshipId, isAdmin } = await params;
 
   const previousPage = "matches";
   const internshipData = await getInternshipData(internshipId);
 
+  if (!internshipData || internshipData.error) {
+    return (
+      <div className="flex flex-col gap-4 items-center justify-center py-20">
+        <div className="text-xl text-gray-500 font-semibold">Internship Not Found</div>
+      </div>
+    )
+  }
+
+
   return (
     <div className="px-10 flex flex-col gap-5">
-      <Link href={`/student/${previousPage}`}>
+      {!isAdmin && <Link href={`/student/${previousPage}`}>
         {" "}
         <div className="flex items-center gap-2 ">
           <div className="h-5 w-5 relative">
@@ -26,14 +35,14 @@ export default async function InternshipPage({ params }) {
             Back to {previousPage[0].toUpperCase() + previousPage.slice(1)}
           </div>
         </div>
-      </Link>
-      <div className="flex gap-5">
+      </Link>}
+      <div className={`flex ${isAdmin && "flex-col "} gap-5`}>
         <div className="w-[70vw]  bg-white  px-[2vw] rounded py-8 gap-8 flex flex-col overflow-hidden">
-          <TitleSection internshipData={internshipData} />
+          <TitleSection internshipData={internshipData} isAdmin={isAdmin} />
           <BodySection internshipData={internshipData} />
         </div>
         <div className="flex w-110 flex-col gap-5">
-          {internshipData.isApplied && (
+          {!isAdmin && internshipData.isApplied && (
             <ApplicationDetailsSection
               internshipData={{
                 status: internshipData.status,
@@ -43,7 +52,7 @@ export default async function InternshipPage({ params }) {
               }}
             />
           )}
-          <InternshipInfo internshipData={internshipData} />
+          <InternshipInfo internshipData={internshipData} isAdmin={isAdmin} />
         </div>
       </div>
     </div>

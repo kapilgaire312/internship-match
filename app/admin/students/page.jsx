@@ -15,10 +15,11 @@ export default async function StudentsPage({ searchParams }) {
             Manage student accounts across the platform.
           </p>
         </div>
-        <AdminSearchBar
+        <div className="w-84"> <AdminSearchBar
           placeholder="Search students by name or email..."
           search={search}
-        />
+        /></div>
+
       </div>
       <div>
         <StudentsTable students={students} />

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ResponseSection from "./ResponseSection";
 
 export default function StudentsTable({ students }) {
@@ -25,7 +26,12 @@ export default function StudentsTable({ students }) {
               const student_id = student._id.toString();
               return (
                 <tr key={index}>
-                  <td className="py-4">{student.name}</td>
+                  <td className="px-3 py-6">
+                    <Link href={`/admin/students/${student._id}`} className="flex text-blue-500 items-center gap-1 hover:underline cursor-pointer">
+                      {student.name}
+                    </Link>
+
+                  </td>
                   <td>{student.email}</td>
                   <td className="pr-5">
                     {" "}

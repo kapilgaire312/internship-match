@@ -2,7 +2,7 @@ import { formatSalary } from "@/utils/formatSalary";
 import InternshipInfoSections from "./InternshipInfoSections";
 import ApplyNowButton from "./ApplyNowButton";
 
-export default function InternshipInfo({ internshipData }) {
+export default function InternshipInfo({ internshipData, isAdmin }) {
   const dataArray = [
     {
       name: "Offered Salary",
@@ -11,7 +11,7 @@ export default function InternshipInfo({ internshipData }) {
     },
     {
       name: "Location",
-      value: internshipData.company_location,
+      value: internshipData.company_location || "--",
       iconSrc: "/location.svg",
     },
     {
@@ -56,7 +56,7 @@ export default function InternshipInfo({ internshipData }) {
           isApplied={internshipData.isApplied}
         />
       </div>
-      {internshipData?.blockMessage && (
+      {internshipData?.blockMessage && !isAdmin && (
         <div className="flex justify-center ">
           <p className="text-center bg-gray-200 px-2 rounded-xl text-gray-500">
             {internshipData.blockMessage}

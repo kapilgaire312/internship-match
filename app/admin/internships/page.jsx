@@ -14,10 +14,13 @@ export default async function InternshipsPage({ searchParams }) {
           Manage internship listings across the platform.
         </p>
       </div>
-      <AdminSearchBar
-        placeholder="Search internships by title or company..."
-        search={search}
-      />
+      <div className="w-110">
+        <AdminSearchBar
+          placeholder="Search internships by title or company..."
+          search={search}
+        />
+      </div>
+
     </div>
     <div>
       <InternshipsTable internships={internships} />
