@@ -98,7 +98,7 @@ export default function CompanyTable({ companyList }) {
                   <td className="px3-2 py-6 ">
                     {company.email}
                   </td>
-                  <td className={`px-2 py-6 `}>
+                  <td className={`text-sm font-medium w-24 text-center rounded-xl py-1 `}>
                     {console.log(statusColors[company.status])}
 
                     <p className={` rounded-xl py-1 text-center`}

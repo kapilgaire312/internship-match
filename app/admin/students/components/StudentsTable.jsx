@@ -36,7 +36,7 @@ export default function StudentsTable({ students }) {
                   <td className="pr-5">
                     {" "}
                     <p
-                      className="py-1 rounded-2xl text-center "
+                      className="text-sm font-medium w-24 text-center rounded-xl py-1"
                       style={{ backgroundColor: color }}
                     >
                       {" "}

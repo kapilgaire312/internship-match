@@ -33,6 +33,7 @@ export default async function handleDeleteInternshipAction(internshipId) {
     revalidatePath("/admin/internships")
     return { success: true }
 
+
   } catch (error) {
     console.error("Error deleting internship:", error)
     return { error: "Failed to delete internship" }
