@@ -1,4 +1,6 @@
+import { Delete } from "lucide-react";
 import Link from "next/link";
+import DeleteInternshipButton from "./DeleteInternshipButton";
 
 
 export default function InternshipsTable({ internships }) {
@@ -10,7 +12,7 @@ export default function InternshipsTable({ internships }) {
           <th className=" px-2 py-3 text-gray-500 font-medium">Title</th>
           <th className=" px-2 py-3 text-gray-500 font-medium">Company</th>
           <th className=" px-2 py-3 text-gray-500 font-medium text-center">Status</th>
-          <th className=" px-2 py-3 text-gray-500 font-medium">Action</th>
+          <th className=" px-2 py-3 text-gray-500 font-medium text-center">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -44,8 +46,16 @@ export default function InternshipsTable({ internships }) {
                   </p>
 
                 </td>
-                <td className="px-3 py-6">
-                  <button className="text-blue-500 hover:text-blue-700">View</button>
+                <td className="px-3 py-6  ">
+                  <div className="flex justify-center items-center gap-4">
+                    <div className="flex items-center gap-4">
+                      <Link href={`/admin/internships/${internship._id}`}
+                        className="flex border  items-center hover:opacity-70 active:opacity-50 transition-all duration-100 ease-in-out h-10  cursor-pointer rounded px-6 py-1 max-w-fit">
+                        View</Link>
+                      <DeleteInternshipButton internshipId={internship._id.toString()} internshipTitle={internship.title} />
+                    </div>
+                  </div>
+
                 </td>
 
               </tr>
