@@ -54,13 +54,13 @@ export default function CompanyTable({ companyList }) {
             </tr>
           ) : (
             companyList.map((company) => {
-              const companyId = company._id.toString();
+              const companyId = company.company_id.toString();
               const status = statusMap[company.status];
               const companyLogo = getCompanyLogoUrl(company.logo)
 
               return (
                 <tr
-                  key={company._id}
+                  key={company.company_id}
                   className=" border-b border-gray-300 "
                 >
                   <td className="py-6 px-3 ">
