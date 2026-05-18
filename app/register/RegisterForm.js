@@ -76,7 +76,7 @@ export default function RegisterForm({ role }) {
           Confirm password:
         </label>
         <input
-          className="border shadow-md rounded w-[90%] h-9 p-2"
+          className="border shadow-md sm:text-xl rounded w-[90%] h-9 p-2"
           type="password"
           id="cpassword"
           name="cpassword"
