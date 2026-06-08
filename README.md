@@ -16,3 +16,26 @@ Students upload their resumes or add their skills, and companies post internship
 - **`@/lib/utils`** – Helper functions restricted to server-side usage.
 - **`@/utils`** – Utility functions that can be shared between the client and server.
 - **`@/components`** – Reusable UI components used across the application.
+
+## Live Deployment
+
+The application is deployed and accessible at:
+
+🔗 **Live URL:** https://internkaji.vercel.app
+
+### Demo Login Credentials
+
+#### Student Account
+- **Email/Username:** alice.johnson@example.edu
+- **Password:** 12345678
+
+#### Company Account
+- **Email/Username:** hr@google.com
+- **Password:** 12345678
+
+
+#### Admin Account
+- **Email/Username:** super.admin@example.com
+- **Password:** 12345678
+
+> Note: These are demo credentials provided for evaluation and testing purposes only.
