@@ -73,6 +73,19 @@ export default function AdminNavbar() {
               </div>
             </Link>
           </div>
+          <div className="flex items-center w-full">
+            {" "}
+            <Link className="contents" href="/admin/sectors">
+              <div className="bg-[#ebf1f7] w-full rounded flex items-center gap-2 px-2 py-2  hover:underline transition-all duration-300 ease-in-out  hover:opacity-80 active:opacity-60 ">
+                {" "}
+                <div className="relative h-4 w-4 ">
+                  {" "}
+                  <Image src="/sector-icon.svg" alt="sector-icon" fill />{" "}
+                </div>
+                Sectors{" "}
+              </div>{" "}
+            </Link>
+          </div>
         </div>
         <div className="flex w-full justify-center bg-gray-200 rounded ">
           <LogoutButton />
