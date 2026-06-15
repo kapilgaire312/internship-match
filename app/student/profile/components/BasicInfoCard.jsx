@@ -1,4 +1,4 @@
-import handleSignOutAction from "@/actions/handleSignOutAction";
+import handleSignOutAction from "@/actions/auth/handleSignOutAction";
 import Image from "next/image";
 import EditProfilePicButton from "./EditProfilePicButton";
 

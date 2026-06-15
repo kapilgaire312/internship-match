@@ -1,6 +1,6 @@
 "use client";
 
-import handleSignOutAction from "@/actions/handleSignOutAction";
+import handleSignOutAction from "@/actions/auth/handleSignOutAction";
 import Image from "next/image";
 
 export default function LogoutButton() {

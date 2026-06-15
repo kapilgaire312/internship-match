@@ -1,6 +1,6 @@
 "use client";
 
-import handleRegisterAction from "@/actions/handleRegisterAction";
+import handleRegisterAction from "@/actions/auth/handleRegisterAction";
 import { useState } from "react";
 import { useFormStatus } from "react-dom";
 

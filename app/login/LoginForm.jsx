@@ -1,6 +1,6 @@
 "use client";
 
-import handleLoginAction from "@/actions/handleLoginAction";
+import handleLoginAction from "@/actions/auth/handleLoginAction";
 import LoadingButton from "@/components/ui/LoadingButton";
 import { useActionState, useEffect, useState } from "react";
 
