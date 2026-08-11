@@ -45,7 +45,7 @@ export default function SectorSelector({
                   }}
                   key={index}
                 >
-                  {item.name}
+                  {item.name.toUpperCase()}
                 </CommandItem>
               ))}
             </CommandGroup>
