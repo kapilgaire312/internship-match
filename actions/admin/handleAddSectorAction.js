@@ -2,6 +2,7 @@
 
 import { auth } from "@/lib/auth";
 import Sector from "@/lib/models/sector-model";
+import { revalidatePath } from "next/cache";
 
 export default async function handleAddSectorAction(prevState, formData) {
   try {
@@ -29,7 +30,9 @@ export default async function handleAddSectorAction(prevState, formData) {
     const newSector = new Sector({ name: sector });
     await newSector.save();
 
-    return { success: true };
+    //refresh the page with revalidate path
+    revalidatePath("/admin/sectors");
+
   } catch (error) {
     console.log(error);
     return { error: "An error occurred while processing the request" };
