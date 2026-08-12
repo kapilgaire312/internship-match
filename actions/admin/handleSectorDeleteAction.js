@@ -3,8 +3,9 @@
 import { auth } from "@/lib/auth";
 import dbConnect from "@/lib/dbConnect";
 import Sector from "@/lib/models/sector-model";
+import { revalidatePath } from "next/cache";
 
-export default async function handdleSectorDeleteAction(sectorId) {
+export default async function handleSectorDeleteAction(sectorId) {
   //check user role
   try {
     const session = await auth();
@@ -14,10 +15,10 @@ export default async function handdleSectorDeleteAction(sectorId) {
 
     await dbConnect();
 
-    const deletedSector = Sector.findByIdAndDelete(sectorId);
+    const deletedSector = await Sector.findByIdAndDelete(sectorId);
 
     if (!deletedSector) {
-      return { error: "Secor doesn't exist." };
+      return { error: "Sector doesn't exist." };
     }
     revalidatePath("/admin/sectors");
     return { success: true };
