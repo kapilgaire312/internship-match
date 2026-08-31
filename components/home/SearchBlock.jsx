@@ -3,7 +3,7 @@ import SearchBar from "../SearchBar";
 export default function SearchBlock() {
   return (
     <div className="flex justify-center mt-5 select-none">
-      <div className="flex flex-col w-[50vw] text-center gap-6">
+      <div className="flex flex-col w-[90vw] md:w-[50vw] text-center gap-6">
         <div className="text-3xl font-semibold">
           Find internships that fit your path
         </div>
