@@ -15,11 +15,11 @@ export default async function InternshipsBlock({ search }) {
   return (
     <div className="flex justify-center">
       {" "}
-      <div className="w-[80vw] bg-white py-6 pl-6  rounded shadow-md">
+      <div className="w-[95vw] md:w-[80vw] bg-white py-6 pl-4 md:pl-6  rounded shadow-md">
         {search ? (
           <div className="flex gap-3">
             <BackButton />
-            <div className="text-2xl font-medium">
+            <div className="text:xl md:text-2xl font-medium">
               Showing results for &quot;{search}&quot;
             </div>
           </div>

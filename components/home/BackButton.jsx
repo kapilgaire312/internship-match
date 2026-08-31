@@ -21,7 +21,7 @@ export default function BackButton() {
   return (
     <div>
       <button onClick={handleClick} className="flex cursor-pointer">
-        <div className="relative w-8 h-8">
+        <div className="relative md:w-8 md:h-8 w-6 h-6">
           <Image src="/back-arrow-logo.svg" fill alt="back-icon" />
         </div>
       </button>

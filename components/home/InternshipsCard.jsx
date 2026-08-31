@@ -19,20 +19,21 @@ export default function InternshipsCard({ internshipInfo }) {
   }
 
   return (
-    <div className="flex justify-between border-b-2 border-gray-200 pt-4 pb-8  pl-4 pr-8 bg-white rounded-xl">
-      <div className="flex justify-start gap-4">
+    <div className="flex items-center md:items-start justify-between border-b-2 border-gray-200 pt-4 pb-8 pr-2 md:pl-4 md:pr-8 bg-white rounded-xl">
+      <div className="flex justify-start gap-2 md:gap-4">
         {" "}
-        <div className="relative w-16 h-16 rounded-full  select-none">
+        <div className="relative w-14 h-14 md:w-16 md:h-16 rounded-full bg-gray-100 flex-shrink-0 select-none flex items-center justify-center overflow-hidden">
           <Image
             src={internshipInfo?.company_logo}
-            fill
+            width={64}
+            height={64}
             alt="logo"
-            className="object-cover"
-          />{" "}
+            className="object-contain w-12 h-12 md:w-14 md:h-14"
+          />
         </div>
         <div className="flex flex-col gap-5">
           <div className="text-xl ">{internshipInfo.title}</div>
-          <div className="flex gap-4 text-gray-600 select-none">
+          <div className="grid md:flex md:gap-4 gap-1.5 text-gray-600 select-none">
             <div className="flex gap-1">
               <div className="relative h-4 w-4 top-1">
                 {" "}
@@ -59,7 +60,7 @@ export default function InternshipsCard({ internshipInfo }) {
               {formatSalary(internshipInfo.salary)} / month
             </div>
             <div
-              className={`flex items-center h-fit gap-1 ${timeRemaining === "Closed" && "bg-gray-300 px-1.5 rounded-xl"}`}
+              className={`w-fit flex items-center h-fit gap-1 ${timeRemaining === "Closed" && "bg-gray-300 px-1.5 rounded-xl"}`}
             >
               {" "}
               <div className="relative h-4 w-4 ">
@@ -69,7 +70,7 @@ export default function InternshipsCard({ internshipInfo }) {
               {timeRemaining}{" "}
             </div>
           </div>
-          <div className="flex gap-3 items-center">
+          <div className="flex-wrap flex gap-1 md:gap-3 items-center">
             {internshipInfo.matchedSkills && (
               <div className="text-gray-600">Matched skills:</div>
             )}
