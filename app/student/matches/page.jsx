@@ -16,10 +16,10 @@ export default async function MatchesPage({ searchParams }) {
 
   return (
     <div>
-      <div className="flex flex-col items-center gap-5 mt-3">
-        <div className="flex flex-col items-start ml-[13vw] gap-5">
+      <div className="flex flex-col items-center gap-5 mt-3 px-2 md:px-0">
+        <div className="flex flex-col items-start ml-[5vw] md:ml-[13vw] gap-5">
           <div className="flex justify-left">
-            <div className="w-[82vw]">
+            <div className="w-[95vw] md:w-[82vw]">
               <div className="ml-1">
                 {" "}
                 <p className="text-2xl font-semibold"> Matched Internships</p>
@@ -30,35 +30,36 @@ export default async function MatchesPage({ searchParams }) {
             </div>
           </div>
           {!error && (
-            <div className="flex mt-2 gap-3">
-              <div className=" ">
-                <div className="w-[67vw] ">
+            <div className="flex flex-col md:flex-row mt-2  gap-3 md:gap-0 md:flex-row justify-between md:items-center w-[94vw] md:w-[82vw]">
+              <div >
+                <div className="w-full md:w-[67vw] ">
                   <SearchBar
                     placeholder={"Search by role, skills, or sectors..."}
                   />
                 </div>
               </div>
-              <div className="flex items-center">
-                {" "}
+              <div className="flex items-center justify-end">
+
                 <Filter />{" "}
+
               </div>
             </div>
           )}
         </div>
-        <div className="flex flex-col gap-2  items-center  ">
+        <div className="flex w-full flex-col items-start gap-2 md:w-auto md:items-center">
           <div className="flex justify-start w-full">
             {search && (
-              <div className="flex gap-3">
+              <div className="flex gap-1.5 md:gap-3">
                 <BackButton />
-                <div className="text-xl font-medium">
+                <div className=" font-medium">
                   Showing results for &quot;{search}&quot;
                 </div>
               </div>
             )}
           </div>{" "}
-          <div className=" flex flex-col gap-9  w-[65vw]">
+          <div className="flex flex-col gap-6 md:gap-9 w-full md:w-[65vw]">
             {error || internships.length === 0 ? (
-              <div className="flex justify-center items-center w-[65vw] h-[40vh] bg-white rounded-xl text-xl font-medium text-gray-500">
+              <div className="flex justify-center items-center w-full md:w-[65vw] h-[40vh] bg-white rounded-xl text-xl font-medium text-gray-500 text-center">
                 {error
                   ? internships.message
                   : "No internhsips matching your skills and sectors found."}

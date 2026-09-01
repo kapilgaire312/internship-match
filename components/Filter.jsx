@@ -32,8 +32,8 @@ export default function Filter() {
   }
 
   return (
-    <form className="flex w-full items-center bg-white rounded-xl px-2 h-[80%] ">
-      <label htmlFor="filter" className="w-full">
+    <form className="flex  items-center bg-white rounded-xl px-2 h-8 md:h-10">
+      <label htmlFor="filter" className="">
         Sort By:
       </label>
       <select
