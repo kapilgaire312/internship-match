@@ -1,6 +1,9 @@
+"use client";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-export default function SideNavbar({ isSidebarOpen, setIsSidebarOpen, navLinks }) {
+import { useState } from "react";
+export default function SideNavbar({ navLinks }) {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   return <>
     <button
       type="button"

@@ -1,9 +1,6 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+
 import SideNavbar from "./Sidebar";
 
 const navLinks = [
@@ -14,7 +11,7 @@ const navLinks = [
 ];
 
 export default function HomeNavbar() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
 
   return (
     <nav className="sticky top-0 z-10 bg-[#f5f6fc] transition-all-300">
@@ -56,7 +53,7 @@ export default function HomeNavbar() {
             </Link>
           </div>
         </div>
-        <SideNavbar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} navLinks={navLinks} />
+        <SideNavbar navLinks={navLinks} />
       </div>
 
 
