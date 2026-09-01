@@ -15,9 +15,9 @@ export default function HomeNavbar() {
 
   return (
     <nav className="sticky top-0 z-10 bg-[#f5f6fc] transition-all-300">
-      <div className="flex justify-between py-5 px-8 select-none sticky items-center">
+      <div className="flex justify-between py-5 px-4 md:px-8 select-none sticky items-center">
         <Link href="/" className="contents">
-          <div className="relative md:w-54 h-13 w-44 h-10 ">
+          <div className="relative aspect-[343/83] w-44 md:w-54">
             <Image
               src="/InternKaji.webp"
               alt="logo"
