@@ -29,7 +29,7 @@ export default function InternshipCardApplied({ internshipData, companyLogo }) {
           </div>
           <div className="flex flex-col gap-5">
             <div className="text-xl ">{internshipInfo.title}</div>
-            <div className="flex gap-4 text-gray-600 select-none">
+            <div className="flex flex-col md:flex-row md:gap-4 gap-2 text-gray-600 select-none">
               <div className="flex gap-1">
                 <div className="relative h-4 w-4 top-1">
                   {" "}
