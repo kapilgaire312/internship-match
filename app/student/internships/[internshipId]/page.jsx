@@ -21,9 +21,11 @@ export default async function InternshipPage({ params }) {
     )
   }
 
+  const adminLayout = isAdmin ? "flex-col" : "md:flex-row";
+
 
   return (
-    <div className="px-10 flex flex-col gap-5">
+    <div className="px-4 md:px-10 flex flex-col gap-5">
       {!isAdmin && <Link href={`/student/${previousPage}`}>
         {" "}
         <div className="flex items-center gap-2 ">
@@ -36,12 +38,12 @@ export default async function InternshipPage({ params }) {
           </div>
         </div>
       </Link>}
-      <div className={`flex ${isAdmin && "flex-col "} gap-5`}>
-        <div className="w-[70vw]  bg-white  px-[2vw] rounded py-8 gap-8 flex flex-col overflow-hidden">
+      <div className={`flex flex-col ${adminLayout} gap-5`}>
+        <div className="w-full md:w-[70vw]  bg-white px-2 md:px-[2vw] rounded py-8 gap-8 flex flex-col overflow-hidden">
           <TitleSection internshipData={internshipData} isAdmin={isAdmin} />
           <BodySection internshipData={internshipData} />
         </div>
-        <div className="flex w-110 flex-col gap-5">
+        <div className="flex w-full md:w-110 flex-col gap-5">
           {!isAdmin && internshipData.isApplied && (
             <ApplicationDetailsSection
               internshipData={{
