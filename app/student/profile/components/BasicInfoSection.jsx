@@ -54,10 +54,10 @@ export default function BasicInfoSection({ basicInfo }) {
           isPending={isPending}
           handleCancel={handelCancel}
         />
-        <div className="flex flex-wrap gap-4 justify-between mt-3 ">
+        <div className="flex flex-wrap gap-3 md:gap-4 justify-between mt-3 ">
           {fields.map((item, index) => {
             return (
-              <div key={index} className="flex flex-col ">
+              <div key={index} className="w-full md:w-[28vw] flex flex-col ">
                 <label htmlFor={item} className="text-gray-600">
                   {fieldsMap[item]}
                   {editing && <span className="text-red-600">*</span>}
@@ -66,7 +66,7 @@ export default function BasicInfoSection({ basicInfo }) {
                   type={item === "batch_year" ? "number" : "text"}
                   id={item}
                   name={item}
-                  className={`border ${item != "email" && editing ? "bg-white" : ""} bg-[#f5f6fc] rounded py-1 px-2 text-xl w-[28vw]`}
+                  className={`border ${item != "email" && editing ? "bg-white" : ""} bg-[#f5f6fc] rounded py-1 px-2 text-xl w-full md:w-[28vw]`}
                   disabled={item === "email" ? true : !editing || isPending}
                   value={values[item]}
                   onChange={(e) => {

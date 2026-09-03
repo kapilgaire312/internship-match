@@ -19,7 +19,7 @@ export default function ResumeSection({ studentResumeDetails }) {
       <div className=" font-medium text-2xl">Resume</div>
 
       {studentResumeDetails?.file_name ? (
-        <div className="flex justify-between  bg-[#f5f6fc] items-center border rounded py-3 px-3">
+        <div className="flex flex-col gap-3 md:gap-0 md:flex-row md:justify-between  bg-[#f5f6fc] md:items-center border rounded py-3 px-3">
           <div className="flex gap-3 items-center">
             <div className="relative h-8 w-8 ">
               <Image src="/file-logo.svg" fill alt="file-icon" />
@@ -33,7 +33,7 @@ export default function ResumeSection({ studentResumeDetails }) {
               </div>
             </div>
           </div>
-          <div className="flex gap-4 items-center">
+          <div className="flex justify-between gap-4 items-center">
             <div>
               {" "}
               <ResumeDeleteButton />{" "}

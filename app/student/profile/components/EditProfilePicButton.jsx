@@ -112,7 +112,7 @@ export default function EditProfilePicButton({ profilePicSrc, companyLogo }) {
   return (
     <>
       <div
-        className={`${!companyLogo && "absolute z-10  right-5 top-2 "} bg-white  rounded-full p-1 flex`}
+        className={`${!companyLogo && "absolute z-1  right-5 top-2 "} bg-white  rounded-full p-1 flex`}
       >
         <button
           className={`${companyLogo && "border font-medium px-2 py-1 rounded"}  flex w-full justify-center items-center gap-2 cursor-pointer hover:opacity-70 active:opacity-50 `}
